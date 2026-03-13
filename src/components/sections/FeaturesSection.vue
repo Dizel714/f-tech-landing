@@ -25,12 +25,9 @@ const features = [
           :key="item.id"
           class="features__item"
         >
-          <!-- Иконка галочки -->
+          <!-- Иконка -->
           <span class="features__item-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <circle cx="11" cy="11" r="11" fill="currentColor" fill-opacity="0.12"/>
-              <path d="M6 11.5L9.5 15L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+           <img src="/icon-check.svg" alt="" width="100" height="100" />
           </span>
 
           <!-- Текст: обычный или цепочка со стрелками -->
@@ -86,19 +83,18 @@ const features = [
 }
 
 /* --- Один элемент: флекс (иконка + текст) --- */
-.features__item {
-  display: flex;             /* иконка слева, текст справа */
-  align-items: flex-start;
-  gap: var(--spacing-md);
 
-  /* ↓ Добавь padding или border-radius для карточного стиля если нужно */
+.features__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  
 }
 
 .features__item-icon {
   flex-shrink: 0;
-  color: var(--color-icon-check);
-  /* ↓ Задай размер иконки по дизайну */
-  margin-top: 2px;
+  display: flex;
+  align-items: center;
 }
 
 .features__item-text {
