@@ -64,8 +64,7 @@ const features = [
    ========================================================================== */
 
 .features {
-  /* ↓ Задай background-color и вертикальные padding по дизайну */
-  background-color: var(--bg-page);
+  background: #9AC2FF26;
   padding: var(--spacing-3xl) 0;
 }
 
@@ -103,10 +102,16 @@ const features = [
 }
 
 .features__item-text {
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-base);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-normal);
+  width: 624px;
+  height: 108px;
+  font-family: 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #000000;
+  
 }
 
 /* --- Цепочка шагов --- */
@@ -124,14 +129,17 @@ const features = [
 }
 
 .features__chain-step {
-  /* ↓ Задай стиль выделения текста шага (цвет, вес) */
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #000000;
 }
 
 .features__chain-arrow {
-  /* ↓ Задай цвет стрелки между шагами */
-  color: var(--color-icon-arrow);
+  color: #7DA6F6;
   font-weight: var(--font-weight-bold);
 }
 
