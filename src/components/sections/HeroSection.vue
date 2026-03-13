@@ -11,17 +11,20 @@
           Ф Тех — Технологический партнёр для банков и финтехов
         </h1>
         <p class="hero__description">
-          Создаём автоматизированные системы под задачи клиента: от аналитики до промышленной эксплуатации
+                   <strong>Создаём автоматизированные системы под задачи клиента:</strong> от аналитики до промышленной эксплуатации
         </p>
         <a href="#solutions" class="hero__btn">
           Ознакомиться с проектом
+                    <span class="hero__btn-circle">
+            <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 2L12.5 9L2 16" stroke="#FFFFFF" stroke-width="3.85" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
         </a>
       </div>
 
-      <!-- Декоративная зона справа — сюда вставь изображение или анимацию из Figma -->
-      <div class="hero__visual" aria-hidden="true">
-        <!-- ↓ Замени на <img src="..." alt="..."> или Vue-компонент с анимацией -->
-        <div class="hero__visual-placeholder"></div>
+            <div class="hero__visual">
+        <img src="/hero-visual.png" alt="Декоративный элемент" class="hero__visual-img" />
       </div>
 
     </div>
@@ -40,7 +43,7 @@
   padding-top: var(--header-height); /* отступ из-за fixed шапки */
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   /* ↓ Задай background: цвет, градиент или изображение по дизайну */
   background-color: var(--bg-section-alt);
@@ -60,42 +63,52 @@
 
 /* --- Текстовый блок --- */
 .hero__content {
-  flex: 1;                   /* занимает доступное пространство */
+  flex: 1;
   max-width: 600px;
 
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);    /* ↓ Настрой расстояние между заголовком, описанием и кнопкой */
+  justify-content: flex-end;
+  gap: var(--spacing-lg);
 }
 
 .hero__title {
-  /* ↓ Задай font-size, font-weight, line-height и цвет по дизайну */
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 67px;
+  letter-spacing: 0%;
 }
 
 .hero__description {
-  /* ↓ Задай font-size, цвет и max-width по дизайну */
-  font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
+  font-family: 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0%;
+  color: var(--color-text-1);
+  }
+
+.hero__description strong {
+  font-weight: 700;
 }
 
 /* --- Кнопка CTA --- */
 .hero__btn {
-  display: inline-block;
-  align-self: flex-start;    /* не растягивать на всю ширину */
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
 
   padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
+  border-radius: 50px;
+  border: 3.85px solid #FFFFFF;
 
   /* ↓ Задай цвет фона, цвет текста и hover-эффект по дизайну */
   background-color: var(--color-primary);
   color: var(--color-white);
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xl);
 
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
@@ -105,20 +118,29 @@
   transform: translateY(-1px);
 }
 
+.hero__btn-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #A3C3F8;
+  flex-shrink: 0;
+}
+
+
 /* --- Декоративная зона --- */
 .hero__visual {
   flex: 0 0 40%;             /* фиксированная ширина визуала */
   max-width: 480px;
 }
 
-.hero__visual-placeholder {
-  /* ↓ Задай размеры и стили заглушки или удали после добавления реального изображения */
+.hero__visual-img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-xl);
-  background-color: var(--color-gray-200);
-
-  /* ↓ Если нужен border или box-shadow — добавь здесь */
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* --- Адаптив --- */
