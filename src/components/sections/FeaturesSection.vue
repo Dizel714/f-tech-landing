@@ -3,15 +3,15 @@ import CheckItem from '../ui/CheckItem.vue'
 
 /* 5 элементов — один содержит цепочку аналитика → разработка → внедрение → сопровождение */
 const features = [
-  { id: 1, text: '100+ специалистов в команде' },
-  { id: 2, text: 'Применяем самые передовые решения рынка' },
+  { id: 1, text: '100+ специалистов' },
+  { id: 2, text: 'Промышленная эксплуатация решений' },
   {
     id: 3,
     text: 'Полный цикл: аналитика → разработка → внедрение → сопровождение',
     hasArrowChain: true,
   },
-  { id: 4, text: 'Надёжный технологический партнёр для бизнеса' },
-  { id: 5, text: 'Ориентация на конечный бизнес-результат' },
+  { id: 4, text: 'Надёжный технологический партнёр' },
+  { id: 5, text: 'Ориентация на измеримый бизнес-результат' },
 ]
 </script>
 
@@ -63,13 +63,19 @@ const features = [
 .features {
   background: #9AC2FF26;
   padding: var(--spacing-3xl) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- Контейнер --- */
 .features__container {
-  max-width: var(--container-max);
+  max-width: 1920px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  width: 1920px;
+  display: flex;
+  justify-content: center;
 }
 
 /* --- Grid 5 элементов в 2 колонки ---
@@ -78,6 +84,7 @@ const features = [
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-lg) var(--spacing-2xl);
+  margin: 0 auto;
 
   /* ↓ Настрой gap между строками и колонками по дизайну */
 }
@@ -86,9 +93,9 @@ const features = [
 
 .features__item {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: var(--spacing-md);
-  
 }
 
 .features__item-icon {
@@ -98,8 +105,6 @@ const features = [
 }
 
 .features__item-text {
-  width: 624px;
-  height: 108px;
   font-family: 'Inter', sans-serif;
   font-size: 34px;
   font-weight: 700;
@@ -129,8 +134,7 @@ const features = [
   font-size: 34px;
   font-weight: 700;
   line-height: 35px;
-  letter-spacing: 0%;
-  vertical-align: middle;
+  letter-spacing: 0;
   color: #000000;
 }
 

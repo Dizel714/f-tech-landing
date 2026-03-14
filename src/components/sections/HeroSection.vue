@@ -8,7 +8,7 @@
 
       <div class="hero__content">
         <h1 class="hero__title">
-          Ф Тех — Технологический партнёр для банков и финтехов
+          Ф Тех — технологический партнёр для банков и финтехов
         </h1>
         <p class="hero__description">
                    <strong>Создаём автоматизированные системы под задачи клиента:</strong> от аналитики до промышленной эксплуатации
@@ -52,9 +52,7 @@
 /* --- Внутренний контейнер --- */
 .hero__container {
   display: flex;             /* контент слева, визуал справа */
-  align-items: center;
-  gap: var(--spacing-3xl);
-
+  
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
@@ -64,7 +62,7 @@
 /* --- Текстовый блок --- */
 .hero__content {
   flex: 1;
-  max-width: 600px;
+  max-width: 812px;
 
   display: flex;
   flex-direction: column;
@@ -73,11 +71,13 @@
 }
 
 .hero__title {
+  width: 842px;
   font-family: 'Inter', sans-serif;
+  font-style: normal;
   font-size: 50px;
   font-weight: 700;
   line-height: 67px;
-  letter-spacing: 0%;
+  color: #000000;
 }
 
 .hero__description {
@@ -97,18 +97,24 @@
 .hero__btn {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   align-self: flex-start;
 
-  padding: var(--spacing-md) var(--spacing-xl);
+  width: 460px;
+  height: 90px;
+  padding: 0 24px;
   border-radius: 50px;
   border: 3.85px solid #FFFFFF;
 
   /* ↓ Задай цвет фона, цвет текста и hover-эффект по дизайну */
   background-color: var(--color-primary);
-  color: var(--color-white);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-xl);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 44px;
+  color: #FFFFFF;
 
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
@@ -132,8 +138,8 @@
 
 /* --- Декоративная зона --- */
 .hero__visual {
-  flex: 0 0 40%;             /* фиксированная ширина визуала */
-  max-width: 480px;
+  flex: 0 0 100%;             /* фиксированная ширина визуала */
+  max-width: 875px;
 }
 
 .hero__visual-img {
