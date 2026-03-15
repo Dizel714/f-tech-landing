@@ -65,8 +65,11 @@ const directions = [
 
 .expertise {
   /* ↓ Задай background-color и padding по дизайну */
+  width: 100%;
   background-color: var(--bg-page);
   padding: var(--spacing-4xl) 0;
+  display: flex;
+  justify-content: center;
 }
 
 /* --- Контейнер --- */

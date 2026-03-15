@@ -37,12 +37,12 @@
    ========================================================================== */
 
 .hero {
-  /* Занимает минимум первую треть экрана (33.3vh) — при необходимости
-     замени на min-height: 100vh если нужен полноэкранный вариант */
-  min-height: calc(100vh / 3 * 2); /* ~67vh, чтобы заголовок хорошо читался */
-  padding-top: var(--header-height); /* отступ из-за fixed шапки */
+  width: 100%;
+  min-height: calc(100vh / 3 * 2);
+  padding-top: var(--header-height);
 
   display: flex;
+  justify-content: center;
   align-items: flex-end;
 
   /* ↓ Задай background: цвет, градиент или изображение по дизайну */

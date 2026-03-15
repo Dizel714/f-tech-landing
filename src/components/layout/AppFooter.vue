@@ -121,9 +121,13 @@ const docLinks = [
 
 .footer {
   /* ↓ Задай background-color и padding по дизайну */
+  width: 100%;
   background-color: var(--color-gray-800);
   padding: var(--spacing-3xl) 0 0;
   color: var(--color-gray-200);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* --- Контейнер --- */

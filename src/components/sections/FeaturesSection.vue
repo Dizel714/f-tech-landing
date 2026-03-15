@@ -61,6 +61,7 @@ const features = [
    ========================================================================== */
 
 .features {
+  width: 100%;
   background: #9AC2FF26;
   padding: var(--spacing-3xl) 0;
   display: flex;
@@ -70,10 +71,10 @@ const features = [
 
 /* --- Контейнер --- */
 .features__container {
+  width: 100%;
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
-  width: 1920px;
   display: flex;
   justify-content: center;
 }
