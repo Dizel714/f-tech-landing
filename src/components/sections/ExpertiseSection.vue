@@ -3,14 +3,14 @@
    Левая треть: подзаголовок + 8 направлений */
 
 const directions = [
-  'Анализ бизнес-требований и архитектуры',
-  'Fullstack-разработка сложных систем',
-  'BI-аналитика и отчётность',
-  'API management и интеграции',
-  'AI/ML-модели для финтеха',
-  'Cloud migrations',
-  'DevSecOps и CI/CD пайплайны',
-  'Нагрузочное тестирование и оптимизация',
+  'Интеллектуальные BPMN-платформы',
+  'CRM и клиентские платформы',
+  'ESB / Integration Layer',
+  'API Management',
+  'OCR + LLM решения для договоров',
+  'AI-скоринг',
+  'Case Management',
+  'Интеграция legacy-систем',
 ]
 </script>
 
@@ -37,20 +37,16 @@ const directions = [
             >
               <!-- Иконка стрелки вправо -->
               <span class="expertise__direction-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5"
-                    stroke="currentColor" stroke-width="1.6"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <img src="/icon-arrow.svg" alt="" width="31" height="23" />
               </span>
               <span class="expertise__direction-text">{{ dir }}</span>
             </li>
           </ul>
         </div>
 
-        <!-- Правые две трети: слот для TechStackSection -->
-        <div class="expertise__stack-area">
-          <slot />
+        <!-- Правая часть: картинка -->
+        <div class="expertise__image-area">
+          <img src="/expertise-visual.png" alt="Экспертиза" class="expertise__visual-img" />
         </div>
 
       </div>
@@ -82,11 +78,13 @@ const directions = [
 /* --- Главный заголовок --- */
 .expertise__heading {
   margin-bottom: var(--spacing-3xl);
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-tight);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #000000;
 }
 
 /* --- Двухколонный layout: 1/3 + 2/3 --- */
@@ -100,27 +98,29 @@ const directions = [
 
 /* --- Левая колонка: направления --- */
 .expertise__directions {
-  /* Ничего лишнего — содержимое идёт в колонку по умолчанию */
+  padding-top: var(--spacing-4xl);
 }
 
 .expertise__directions-title {
   margin-bottom: var(--spacing-lg);
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 38px;
+  color: #43359C;
 }
 
 /* --- Список направлений в колонку --- */
 .expertise__directions-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: 0;
 }
 
 .expertise__direction-item {
-  display: flex;             /* флекс: иконка стрелки слева, текст справа */
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
   gap: var(--spacing-sm);
 }
 
@@ -131,15 +131,28 @@ const directions = [
 }
 
 .expertise__direction-text {
-  /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-base);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-normal);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 71px;
+  color: #43359C;
 }
 
-/* --- Правая область (слот для TechStackSection) --- */
-.expertise__stack-area {
-  /* Стили задаются в TechStackSection — эта область только даёт место */
+/* --- Правая область под картинку --- */
+.expertise__image-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: var(--spacing-4xl);
+}
+
+.expertise__visual-img {
+  width: 808px;
+  height: 808px;
+  object-fit: contain;
+  display: block;
+  transform: scaleX(-1);
 }
 
 /* --- Адаптив --- */

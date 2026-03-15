@@ -52,13 +52,13 @@ function closeModal() {
       <!-- 5. Декоративный разделитель -->
       <DecorativeDivider />
 
-      <!-- 6. Экспертиза + Технологический стек (layout 1/3 + 2/3) -->
-      <ExpertiseSection>
-        <!-- TechStackSection рендерится в слоте ExpertiseSection -->
-        <TechStackSection />
-      </ExpertiseSection>
+      <!-- 6. Экспертиза (Наши направления + картинка справа) -->
+      <ExpertiseSection />
 
-      <!-- 7. CTA — карточка призыва к действию -->
+      <!-- 7. Технологический стек — отдельная секция -->
+      <TechStackSection />
+
+      <!-- 8. CTA — карточка призыва к действию -->
       <CtaSection @open-modal="openModal" />
 
     </main>

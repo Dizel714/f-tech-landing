@@ -59,30 +59,33 @@ const techStack = [
 </script>
 
 <template>
-  <div class="tech-stack">
-    <h3 class="tech-stack__heading">Технологический стек</h3>
 
-    <ul class="tech-stack__list">
-      <li
-        v-for="category in techStack"
-        :key="category.id"
-        class="tech-stack__row"
-      >
-        <!-- Название направления -->
-        <span class="tech-stack__category">{{ category.label }}</span>
+  <section class="tech-stack" id="tech-stack">
+    <div class="tech-stack__container">
+      <h2 class="tech-stack__heading">Технологический стек</h2>
 
-        <!-- Строка с чипсами — flex-row -->
-        <div class="tech-stack__chips">
-          <TechChip
-            v-for="tech in category.technologies"
-            :key="tech.name"
-            :label="tech.name"
-            :icon-src="tech.iconSrc"
-          />
-        </div>
-      </li>
-    </ul>
-  </div>
+      <ul class="tech-stack__list">
+        <li
+          v-for="category in techStack"
+          :key="category.id"
+          class="tech-stack__row"
+        >
+          <!-- Название направления -->
+          <span class="tech-stack__category">{{ category.label }}</span>
+
+          <!-- Строка с чипсами — flex-row -->
+          <div class="tech-stack__chips">
+            <TechChip
+              v-for="tech in category.technologies"
+              :key="tech.name"
+              :label="tech.name"
+              :icon-src="tech.iconSrc"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <style scoped>
@@ -91,7 +94,18 @@ const techStack = [
    ========================================================================== */
 
 .tech-stack {
-  /* Этот компонент рендерится в слоте ExpertiseSection */
+  width: 100%;
+  background-color: var(--bg-page);
+  padding: var(--spacing-4xl) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tech-stack__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
 /* --- Подзаголовок --- */
