@@ -18,7 +18,7 @@ function handleClick() {
           <h2 class="cta__title">Обсудим ваш проект</h2>
 
           <p class="cta__subtitle">
-            Расскажите о задаче — предложим оптимальное архитектурное и технологическое решение
+            Поможем спроектировать и внедрить технологическое решение под задачи вашего банка или финтех-проекта
           </p>
 
           <button class="cta__btn" type="button" @click="handleClick">
@@ -39,7 +39,7 @@ function handleClick() {
 .cta {
   /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
-  background-color: var(--bg-section-alt);
+  background-color: #F5F5F5;
   padding: var(--spacing-3xl) 0;
   display: flex;
   justify-content: center;
@@ -58,11 +58,12 @@ function handleClick() {
   align-items: center;
   justify-content: center;
 
-  padding: var(--spacing-4xl) var(--spacing-3xl);
-  border-radius: var(--radius-xl);
-
-  /* ↓ Задай background (градиент или цвет), box-shadow и border по дизайну */
-  background-color: var(--color-primary);
+  width: 1600px;
+  height: 596px;
+  border-radius: 30px;
+  background-image: url('/cta-bg.png');
+  background-size: cover;
+  background-position: center;
 }
 
 /* --- Контент карточки — центрирован по вертикали и горизонтали --- */
@@ -72,22 +73,30 @@ function handleClick() {
   align-items: center;
   gap: var(--spacing-lg);
   text-align: center;
-  max-width: 600px;
+  width: 874px;
+  height: 66px;
 }
 
 .cta__title {
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-white);
-  line-height: var(--line-height-tight);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #43359C;
 }
 
 .cta__subtitle {
-  /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-md);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: var(--line-height-relaxed);
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 35px;
+text-align: center;
+
+color: #000000;
 }
 
 /* --- Кнопка --- */
@@ -97,10 +106,20 @@ function handleClick() {
   border-radius: var(--radius-md);
 
   /* ↓ Задай цвет фона кнопки и hover-эффект по дизайну */
-  background-color: var(--color-white);
-  color: var(--color-primary);
+  background: #306AF2;
+  border-radius: 53.8658px;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25.7143px;
+  line-height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  color: #FFFFFF;
 
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
@@ -110,14 +129,4 @@ function handleClick() {
   transform: translateY(-2px);
 }
 
-/* --- Адаптив --- */
-@media (max-width: 600px) {
-  .cta__card {
-    padding: var(--spacing-2xl) var(--spacing-lg);
-  }
-
-  .cta__title {
-    font-size: var(--font-size-2xl);
-  }
-}
 </style>

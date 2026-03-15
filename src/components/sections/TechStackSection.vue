@@ -91,7 +91,7 @@ const techStack = [
 .tech-stack {
   position: relative;
   width: 100%;
-  background-color: var(--bg-page);
+  background-color: #F5F5F5;
   padding: var(--spacing-4xl) 0;
   display: flex;
   justify-content: center;
