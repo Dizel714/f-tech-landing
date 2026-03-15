@@ -15,14 +15,16 @@ function handleClick() {
       <div class="cta__card">
         <div class="cta__content">
 
-          <h2 class="cta__title">Обсудим ваш проект</h2>
-
-          <p class="cta__subtitle">
-            Поможем спроектировать и внедрить технологическое решение под задачи вашего банка или финтех-проекта
-          </p>
+          <div class="cta__text">
+            <h2 class="cta__title">Обсудим ваш проект</h2>
+            <p class="cta__subtitle">
+              Поможем спроектировать и внедрить технологическое решение под задачи вашего банка или финтех-проекта
+            </p>
+          </div>
 
           <button class="cta__btn" type="button" @click="handleClick">
             Запросить консультацию
+            <img src="/icon-arrow-circle.svg" alt="" class="cta__btn-icon" aria-hidden="true" />
           </button>
 
         </div>
@@ -40,7 +42,7 @@ function handleClick() {
   /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
   background-color: #F5F5F5;
-  padding: var(--spacing-3xl) 0;
+  padding: 0;
   display: flex;
   justify-content: center;
 }
@@ -55,8 +57,9 @@ function handleClick() {
 /* --- Карточка: большой прямоугольник с центрированным контентом --- */
 .cta__card {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  padding: 115px 0 67px;
 
   width: 1600px;
   height: 596px;
@@ -71,10 +74,17 @@ function handleClick() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-lg);
+  justify-content: space-between;
   text-align: center;
   width: 874px;
-  height: 66px;
+  }
+
+/* --- Группа заголовок + подзаголовок --- */
+.cta__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 61px;
 }
 
 .cta__title {
@@ -101,32 +111,33 @@ color: #000000;
 
 /* --- Кнопка --- */
 .cta__btn {
-  display: inline-block;
-  padding: var(--spacing-md) var(--spacing-2xl);
-  border-radius: var(--radius-md);
-
-  /* ↓ Задай цвет фона кнопки и hover-эффект по дизайну */
-  background: #306AF2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 467px;
+  height: 90px;
+  padding: 0 var(--spacing-2xl);
   border-radius: 53.8658px;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  background: #306AF2;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 25.7143px;
-  line-height: 62px;
-
-  display: flex;
-  align-items: center;
-
+  line-height: 1;
   color: #FFFFFF;
-
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .cta__btn:hover {
-  background-color: var(--color-gray-100);
+  background-color: #1a57de;
   transform: translateY(-2px);
+}
+
+.cta__btn-icon {
+  width: 75px;
+  height: 75px;
+  margin-left: 23px;
+  flex-shrink: 0;
 }
 
 </style>

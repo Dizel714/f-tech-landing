@@ -101,7 +101,7 @@ const techStack = [
 .tech-stack__visual {
   position: absolute;
   bottom: 0;
-  right: 30%;
+  right: 37%;
   width: 338px;
   height: 338px;
   object-fit: contain;
