@@ -4,58 +4,58 @@
 const solutions = [
   {
     id: 1,
-    title: 'Кредитно-рисковый Отдел',
-    description: 'Автоматизация процессов кредитного анализа и управления рисками в реальном времени.',
+    title: 'Кредитный конвейер Octasoft',
+    description: 'Гибкая BPMN-платформа для розничного и корпоративного кредитования',
     advantages: {
-      heading: 'Продукт',
+      heading: 'Что даёт:',
       items: [
-        'Оценка кредитоспособности заёмщиков',
-        'Мониторинг кредитного портфеля',
-        'Управление дефолтами и реструктуризацией',
-        'Автоматическая генерация отчётности',
+        'Оркестрация кредитных процессов',
+        'Интеграция риск-моделей',
+        'Поддержка кредитных комитетов',
+        'Быстрый вывод новых продуктов',
       ],
     },
   },
   {
     id: 2,
-    title: 'Грант-Сервис',
-    description: 'Платформа для управления государственными и корпоративными грантовыми программами.',
+    title: 'Примус Финанс',
+    description: 'Цифровые платформы для факторинга и управления агентской сетью',
     advantages: {
-      heading: 'Возможности',
+      heading: 'Возможности:',
       items: [
-        'Подача и рассмотрение заявок онлайн',
-        'Мониторинг исполнения условий гранта',
-        'Управление платёжными транзакциями',
-        'Интеграция с государственными реестрами',
+        'Онлайн-факторинг',
+        'Контроль дебиторской задолженности',
+        'Управление агентами и комиссиями',
+        'Интеграция с CRM и АБС',
       ],
     },
   },
   {
     id: 3,
-    title: 'Автоматизированная система для МФО',
-    description: 'Комплексное решение для автоматизации микрофинансовых организаций любого масштаба.',
+    title: 'Автоматизированная система для МСБ',
+    description: 'Единая цифровая платформа для сквозной автоматизации работы с клиентами МСБ',
     advantages: {
-      heading: 'Продукт',
+      heading: 'Что решает:',
       items: [
-        'Выдача и погашение займов',
-        'KYC / AML-проверки',
-        'Расчёт платёжного графика',
-        'Формирование резервов по МСФО',
-        'Гибкий конструктор продуктов',
+        'Приём и обработка заявок',
+        'KYC / KYB',
+        'Подбор банковских продуктов',
+        'Интеграция со скорингами и АБС',
+        'Управление жизненным циклом клиента',
       ],
     },
   },
   {
     id: 4,
-    title: 'Банковские потоки',
-    description: 'Система управления финансовыми потоками и расчётами внутри банковской экосистемы.',
+    title: 'Фабрика платежей',
+    description: 'Централизованная маршрутизация и обработка платежей',
     advantages: {
-      heading: 'Преимущества',
+      heading: 'Преимущества:',
       items: [
-        'Обработка транзакций в реальном времени',
-        'Высокая отказоустойчивость',
-        'Интеграция по API с внешними системами',
-        'Масштабируемая микросервисная архитектура',
+        'Снижение операционных рисков',
+        'Повышение отказоустойчивости',
+        'Контроль статусов и жизненного цикла',
+        'Масштабируемость под высокие нагрузки',
       ],
     },
   },
@@ -92,10 +92,7 @@ const solutions = [
               >
                 <!-- Иконка галочки -->
                 <span class="solution-card__check-icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <circle cx="9" cy="9" r="9" fill="currentColor" fill-opacity="0.1"/>
-                    <path d="M4.5 9.5L7.5 12.5L13.5 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  <img src="/icon-check-solution.svg" alt="" width="33" height="33" />
                 </span>
                 <span class="solution-card__advantage-text">{{ item }}</span>
               </li>
@@ -131,19 +128,21 @@ const solutions = [
 
 /* --- Заголовок секции --- */
 .solutions__heading {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
   text-align: center;
   margin-bottom: var(--spacing-3xl);
+  color: #000000;
 
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
 }
 
 /* --- Grid 2×2 --- */
 .solutions__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 848px);
   gap: var(--spacing-xl);
 
   /* ↓ Настрой gap между карточками по дизайну */
@@ -157,6 +156,7 @@ const solutions = [
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  width: 848px;
 
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
@@ -166,37 +166,58 @@ const solutions = [
   box-shadow: var(--shadow-md);
 }
 
+/* Верхний ряд (карточки 1 и 2) */
+.solution-card:nth-child(1),
+.solution-card:nth-child(2) {
+  height: 492px;
+}
+
+/* Нижний ряд (карточки 3 и 4) */
+.solution-card:nth-child(3),
+.solution-card:nth-child(4) {
+  height: 543px;
+}
+
 .solution-card__title {
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 30px;
+  letter-spacing: -0.05em;
+  color: #000000;
+  margin-bottom: var(--spacing-xl);
 }
 
 .solution-card__description {
-  /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: -0.05em;
+  color: #5688F4;
 }
 
 /* --- Секция преимуществ --- */
 .solution-card__advantages {
-  margin-top: auto;          /* прижать к нижней части карточки */
+  margin-top: auto;
   padding-top: var(--spacing-md);
 
-  /* ↓ Добавь border-top для визуального разделения если нужно */
-  border-top: 1px solid var(--color-divider);
+  padding-left: var(--spacing-xl);
+
 }
 
 .solution-card__advantages-heading {
   margin-bottom: var(--spacing-sm);
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  padding-left: calc(33px + var(--spacing-2xl));
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 51px;
+  letter-spacing: -0.05em;
+  color: #000000;
 }
 
 /* --- Список преимуществ --- */
@@ -206,10 +227,15 @@ const solutions = [
   gap: var(--spacing-xs);
 }
 
+/* Карточка 4 имеет на 1 пункт меньше — выравниваем заголовок по карточке 3 */
+.solution-card:nth-child(4) .solution-card__advantages-list {
+  padding-bottom: 51px;
+}
+
 .solution-card__advantage-item {
-  display: flex;             /* флекс: иконка слева, текст справа */
-  align-items: flex-start;
-  gap: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
 }
 
 .solution-card__check-icon {
@@ -219,20 +245,13 @@ const solutions = [
 }
 
 .solution-card__advantage-text {
-  /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-sm);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-normal);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 51px;
+  letter-spacing: -0.05em;
+  color: #000000;
 }
 
-/* --- Адаптив --- */
-@media (max-width: 768px) {
-  .solutions__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .solutions__heading {
-    font-size: var(--font-size-2xl);
-  }
-}
 </style>
