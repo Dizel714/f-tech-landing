@@ -6,42 +6,36 @@ import TechChip from '../ui/TechChip.vue'
 const techStack = [
   {
     id: 'backend',
-    label: 'Backend',
+    label: 'Backend:',
     technologies: [
-      { name: 'Java', iconSrc: null },
-      { name: 'Spring Boot', iconSrc: null },
+      { name: 'C#', iconSrc: null },
+      { name: '.NET 7-9', iconSrc: null },
+      { name: 'Java (Spring Boot)', iconSrc: null },
       { name: 'Python', iconSrc: null },
       { name: 'Go', iconSrc: null },
-      { name: 'Node.js', iconSrc: null },
     ],
   },
   {
     id: 'frontend',
-    label: 'Frontend',
+    label: 'Frontend:',
     technologies: [
-      { name: 'Vue', iconSrc: null },
       { name: 'Angular', iconSrc: null },
       { name: 'React', iconSrc: null },
-      { name: 'TypeScript', iconSrc: null },
     ],
   },
   {
     id: 'db',
-    label: 'БД',
+    label: 'БД:',
     technologies: [
       { name: 'PostgreSQL', iconSrc: null },
-      { name: 'MongoDB', iconSrc: null },
-      { name: 'Redis', iconSrc: null },
-      { name: 'Elasticsearch', iconSrc: null },
     ],
   },
   {
     id: 'monitoring',
-    label: 'Мониторинг',
+    label: 'Мониторинг:',
     technologies: [
       { name: 'Prometheus', iconSrc: null },
       { name: 'Grafana', iconSrc: null },
-      { name: 'Kibana', iconSrc: null },
     ],
   },
   {
@@ -49,10 +43,7 @@ const techStack = [
     label: 'DevOps',
     technologies: [
       { name: 'Docker', iconSrc: null },
-      { name: 'Kubernetes', iconSrc: null },
-      { name: 'GitLab CI', iconSrc: null },
-      { name: 'Terraform', iconSrc: null },
-      { name: 'Ansible', iconSrc: null },
+      { name: 'CI/CD (GitHub, GitLab, Jenkins)', iconSrc: null },
     ],
   },
 ]
@@ -62,7 +53,7 @@ const techStack = [
 
   <section class="tech-stack" id="tech-stack">
     <div class="tech-stack__container">
-      <h2 class="tech-stack__heading">Технологический стек</h2>
+      <h2 class="tech-stack__heading">Технологический стек:</h2>
 
       <ul class="tech-stack__list">
         <li
@@ -111,10 +102,12 @@ const techStack = [
 /* --- Подзаголовок --- */
 .tech-stack__heading {
   margin-bottom: var(--spacing-xl);
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 38px;
+  color: #43359C;
 }
 
 /* --- Список направлений в колонку --- */
@@ -134,13 +127,13 @@ const techStack = [
 }
 
 .tech-stack__category {
-  /* Фиксированная ширина для выравнивания колонки */
-  flex: 0 0 100px;
-
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
+  flex: 0 0 150px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 70px;
+  color: #43359C;
 }
 
 /* --- Строка чипсов — flex-row с переносом --- */
