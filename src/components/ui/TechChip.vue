@@ -4,10 +4,24 @@ defineProps({
     type: String,
     required: true,
   },
-  /* Опциональная иконка: передавай URL или SVG-строку.
-     Если не передана — иконка не рендерится */
+    sublabel: {
+    type: String,
+    default: null,
+  },
   iconSrc: {
     type: String,
+    default: null,
+  },
+    iconSize: {
+    type: Number,
+    default: 36,
+  },
+    iconWidth: {
+    type: Number,
+    default: null,
+  },
+  iconHeight: {
+    type: Number,
     default: null,
   },
 })
@@ -20,10 +34,10 @@ defineProps({
       class="tech-chip__icon"
       :src="iconSrc"
       :alt="label"
-      width="16"
-      height="16"
+      :width="iconWidth ?? iconSize"
+      :height="iconHeight ?? iconSize"
     />
-    <span class="tech-chip__label">{{ label }}</span>
+      <span class="tech-chip__label">{{ label }}<span v-if="sublabel" class="tech-chip__sublabel"> ({{ sublabel }})</span></span>
   </span>
 </template>
 
@@ -32,31 +46,34 @@ defineProps({
    Используется в TechStackSection для каждого инструмента */
 
 .tech-chip {
-  display: inline-flex;   /* иконка слева, текст справа */
+  display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
 
-  /* ↓ Настрой padding, цвета фона и текста по дизайну */
+  background: #E5E6F4;
+  border-radius: 55px;
   padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
 
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 35px;
+  color: #43359C;
   white-space: nowrap;
 
-  /* ↓ Если нужна рамка — раскомментируй:
-  border: 1px solid var(--color-primary); */
+
 }
 
 .tech-chip__icon {
   flex-shrink: 0;
   object-fit: contain;
-  /* ↓ Подбери размер иконки под дизайн */
 }
 
 .tech-chip__label {
-  /* дополнительные стили текста — font-size уже задан на .tech-chip */
+}
+
+.tech-chip__sublabel {
+  font-weight: 400;
 }
 </style>

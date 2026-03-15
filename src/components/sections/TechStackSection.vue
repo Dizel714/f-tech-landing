@@ -10,7 +10,7 @@ const techStack = [
     technologies: [
       { name: 'C#', iconSrc: null },
       { name: '.NET 7-9', iconSrc: null },
-      { name: 'Java (Spring Boot)', iconSrc: null },
+      { name: 'Java', sublabel: 'Spring Boot', iconSrc: null },
       { name: 'Python', iconSrc: null },
       { name: 'Go', iconSrc: null },
     ],
@@ -19,39 +19,39 @@ const techStack = [
     id: 'frontend',
     label: 'Frontend:',
     technologies: [
-      { name: 'Angular', iconSrc: null },
-      { name: 'React', iconSrc: null },
+      { name: 'Angular', iconSrc: '/angular.svg' },
+      { name: 'React', iconSrc: '/react.svg' },
     ],
   },
   {
     id: 'db',
     label: 'БД:',
     technologies: [
-      { name: 'PostgreSQL', iconSrc: null },
+      { name: 'PostgreSQL', iconSrc: '/postgresql.svg' },
     ],
   },
   {
     id: 'monitoring',
     label: 'Мониторинг:',
     technologies: [
-      { name: 'Prometheus', iconSrc: null },
-      { name: 'Grafana', iconSrc: null },
+      { name: 'Prometheus', iconSrc: '/prometheus.svg' },
+      { name: 'Grafana', iconSrc: '/grafana.svg' },
     ],
   },
   {
     id: 'devops',
     label: 'DevOps',
     technologies: [
-      { name: 'Docker', iconSrc: null },
-      { name: 'CI/CD (GitHub, GitLab, Jenkins)', iconSrc: null },
+      { name: null, iconSrc: '/docker.svg', iconWidth: 114, iconHeight: 29 },
+      { name: 'CI/CD', sublabel: 'GitHub, GitLab, Jenkins', iconSrc: null },
     ],
   },
 ]
 </script>
 
 <template>
-
   <section class="tech-stack" id="tech-stack">
+    <img src="/techstack-visual.png" alt="" class="tech-stack__visual" />
     <div class="tech-stack__container">
       <h2 class="tech-stack__heading">Технологический стек:</h2>
 
@@ -66,12 +66,16 @@ const techStack = [
 
           <!-- Строка с чипсами — flex-row -->
           <div class="tech-stack__chips">
-            <TechChip
-              v-for="tech in category.technologies"
-              :key="tech.name"
-              :label="tech.name"
-              :icon-src="tech.iconSrc"
-            />
+          <TechChip
+            v-for="tech in category.technologies"
+            :key="tech.name"
+            :label="tech.name"
+            :sublabel="tech.sublabel"
+            :icon-src="tech.iconSrc"
+            :icon-size="tech.iconSize ?? 36"
+            :icon-width="tech.iconWidth ?? null"
+            :icon-height="tech.iconHeight ?? null"
+          />
           </div>
         </li>
       </ul>
@@ -85,11 +89,22 @@ const techStack = [
    ========================================================================== */
 
 .tech-stack {
+  position: relative;
   width: 100%;
   background-color: var(--bg-page);
   padding: var(--spacing-4xl) 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.tech-stack__visual {
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  width: 338px;
+  height: 338px;
+  object-fit: contain;
 }
 
 .tech-stack__container {
@@ -97,11 +112,12 @@ const techStack = [
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  padding-left: 3%;
 }
 
 /* --- Подзаголовок --- */
 .tech-stack__heading {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 800;
