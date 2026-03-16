@@ -52,11 +52,12 @@
 /* --- Внутренний контейнер --- */
 .hero__container {
   display: flex;             /* контент слева, визуал справа */
+  align-items: flex-end;
   
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
-  padding: var(--spacing-3xl) var(--container-padding);
+  padding: var(--spacing-3xl) 0 var(--spacing-3xl) var(--container-padding);
 }
 
 /* --- Текстовый блок --- */
@@ -138,10 +139,9 @@
 
 /* --- Декоративная зона --- */
 .hero__visual {
-  flex: 0 0 100%;
+  flex: 0 0 875px;
   max-width: 875px;
   margin-bottom: calc(-1 * var(--spacing-3xl));
-  margin-right: calc(-1 * var(--container-padding));
 }
 
 .hero__visual-img {

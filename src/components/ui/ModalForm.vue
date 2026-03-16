@@ -10,11 +10,9 @@ const form = ref({
   phone: '',
 })
 
-/* Флаг согласия с политикой */
-const agreed = ref(false)
+/* Согласие с политикой (текст без чекбокса) */
 
 function handleSubmit() {
-  if (!agreed.value) return
   /* ↓ Здесь добавь логику отправки формы (fetch / axios) */
   console.log('Form submitted:', form.value)
   emit('close')
@@ -53,7 +51,7 @@ function handleBackdropClick(event) {
         <div class="modal__info">
           <h2 class="modal__info-title" id="modal-title">Обратная связь</h2>
           <p class="modal__info-text">
-            Свяжемся с вами в ближайшее время и подберём оптимальное решение под ваши задачи
+            Свяжемся с Вами в ближайшее время!
           </p>
         </div>
 
@@ -61,15 +59,15 @@ function handleBackdropClick(event) {
         <form class="modal__form" @submit.prevent="handleSubmit" novalidate>
 
           <div class="modal__fields">
-            <!-- Поле: Имя -->
+            <!-- Поле: Имя* -->
             <div class="modal__field">
-              <label class="modal__label" for="modal-name">Имя</label>
+              <label class="modal__label" for="modal-name">Имя*</label>
               <input
                 id="modal-name"
                 v-model="form.name"
                 class="modal__input"
                 type="text"
-                placeholder="Иван Иванов"
+                placeholder="Иван"
                 required
                 autocomplete="name"
               />
@@ -77,55 +75,46 @@ function handleBackdropClick(event) {
 
             <!-- Поле: Компания -->
             <div class="modal__field">
-              <label class="modal__label" for="modal-company">Компания</label>
+              <label class="modal__label" for="modal-company">Компания*</label>
               <input
                 id="modal-company"
                 v-model="form.company"
                 class="modal__input"
                 type="text"
-                placeholder="ООО «Финтех»"
+                placeholder="Название компании»"
                 autocomplete="organization"
               />
             </div>
 
             <!-- Поле: Телефон -->
             <div class="modal__field">
-              <label class="modal__label" for="modal-phone">Телефон</label>
+              <label class="modal__label" for="modal-phone">Телефон*</label>
               <input
                 id="modal-phone"
                 v-model="form.phone"
                 class="modal__input"
                 type="tel"
-                placeholder="+7 (999) 000-00-00"
+                placeholder="+7..."
                 required
                 autocomplete="tel"
               />
             </div>
           </div>
 
-          <!-- Кнопка отправки -->
-          <button
-            class="modal__submit"
-            type="submit"
-            :disabled="!agreed"
-          >
-            Отправить
-          </button>
-
-          <!-- Согласие с политикой -->
-          <label class="modal__policy">
-            <input
-              v-model="agreed"
-              class="modal__policy-checkbox"
-              type="checkbox"
-            />
-            <span class="modal__policy-text">
-              Нажимая кнопку «Отправить», вы соглашаетесь с
-              <a href="/privacy" class="modal__policy-link" target="_blank">
-                политикой обработки персональных данных
-              </a>
-            </span>
-          </label>
+          <!-- Нижний блок: кнопка и текст по центру -->
+          <div class="modal__form-footer">
+            <button class="modal__submit" type="submit">
+              Отправить
+            </button>
+            <div class="modal__policy">
+              <span class="modal__policy-text">
+                Нажимая кнопку «Отправить», Вы соглашаетесь с
+                <a href="/privacy" class="modal__policy-link" target="_blank">
+                  политикой обработки персональных данных
+                </a>
+              </span>
+            </div>
+          </div>
 
         </form>
       </div>
@@ -156,17 +145,18 @@ function handleBackdropClick(event) {
 /* --- Контейнер модального окна --- */
 .modal {
   position: relative;
-  width: 100%;
-  max-width: 800px;
-  max-height: 90vh;
+  width: 908px;
+  height: 688px;
+  max-width: 90vw;
   overflow-y: auto;
 
-  border-radius: var(--radius-xl);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
   padding: var(--spacing-2xl);
 
-  /* ↓ Задай background-color и box-shadow по дизайну */
-  background-color: var(--bg-card);
-  box-shadow: var(--shadow-lg);
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px 4px #A3C3F8;
 
   margin: var(--spacing-md);
 }
@@ -198,9 +188,9 @@ function handleBackdropClick(event) {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: var(--spacing-2xl);
-  align-items: start;
-
-  /* ↓ Настрой gap по дизайну */
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
 }
 
 /* --- Левая треть: информационный блок --- */
@@ -208,23 +198,29 @@ function handleBackdropClick(event) {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  padding-top: var(--spacing-2xl);
 
   /* ↓ Добавь padding-right или разделительную линию если нужно */
 }
 
 .modal__info-title {
-  /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  line-height: var(--line-height-tight);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.03em;
+  color: #43359C;
 }
 
 .modal__info-text {
-  /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 31px;
+color: #000000;
+
 }
 
 /* --- Правые две трети: форма --- */
@@ -239,6 +235,20 @@ function handleBackdropClick(event) {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+    flex: 1;
+  min-height: 0;
+}
+
+/* --- Нижний блок: кнопка и текст по центру --- */
+.modal__form-footer {
+  position: absolute;
+  left: 50%;
+  bottom: var(--spacing-2xl);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 /* --- Одно поле: label + input --- */
@@ -250,48 +260,60 @@ function handleBackdropClick(event) {
 
 .modal__label {
   /* ↓ Задай font-size, font-weight и color по дизайну */
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 35px;
+  color: #000000;
 }
 
 .modal__input {
-  width: 100%;
+  width: 480px;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: 5px;
 
-  /* ↓ Задай border, background-color и цвет placeholder по дизайну */
   border: 1px solid var(--color-gray-200);
-  background-color: var(--color-gray-50);
-  color: var(--color-text-primary);
+  background: rgba(201, 225, 250, 0.57);
+  
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 35px;
+  color: #000000;
 
-  font-size: var(--font-size-base);
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .modal__input:focus {
-  /* ↓ Задай стиль фокуса (border-color, box-shadow) по дизайну */
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 .modal__input::placeholder {
-  color: var(--color-gray-400);
+  color: rgba(0, 0, 0, 0.36);
 }
 
 /* --- Кнопка отправки --- */
 .modal__submit {
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
+  width: 325px;
+  height: 63px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 37.5246px;
+  background: #306AF2;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17.9134px;
+  line-height: 43px;
+  color: #FFFFFF;
 
-  /* ↓ Задай цвет фона и hover-эффект по дизайну */
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-
-  align-self: flex-start;
   transition: background-color var(--transition-fast);
 }
 
@@ -306,31 +328,27 @@ function handleBackdropClick(event) {
 
 /* --- Политика конфиденциальности --- */
 .modal__policy {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  cursor: pointer;
-}
-
-.modal__policy-checkbox {
-  flex-shrink: 0;
-  margin-top: 3px;
-  cursor: pointer;
-  accent-color: var(--color-primary);
-  /* ↓ Задай размер чекбокса */
-  width: 16px;
-  height: 16px;
+  display: block;
 }
 
 .modal__policy-text {
-  /* ↓ Задай font-size и color по дизайну — это мелкий текст */
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-  line-height: var(--line-height-relaxed);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  text-align: center;
+  color: #7A7A7A;
 }
 
 .modal__policy-link {
-  color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  text-align: center;
+  color: #306AF2;
   text-decoration: underline;
 }
 

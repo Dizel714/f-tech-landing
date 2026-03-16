@@ -23,10 +23,6 @@ defineProps({
         :src="imageSrc"
         :alt="alt"
       />
-      <div v-else class="divider__placeholder">
-        <!-- ↓ Замени на реальное декоративное изображение из Figma -->
-        <span class="divider__placeholder-label">[ Декоративное изображение ]</span>
-      </div>
     </div>
   </div>
 </template>
@@ -56,21 +52,4 @@ defineProps({
   /* ↓ При необходимости задай object-fit и height */
 }
 
-/* --- Заглушка до добавления реального изображения --- */
-.divider__placeholder {
-  /* ↓ Задай высоту и визуальные стили заглушки */
-  width: 100%;
-  height: 160px;
-  background-color: var(--color-gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.divider__placeholder-label {
-  /* ↓ Удали этот элемент после замены на реальное изображение */
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-400);
-  font-style: italic;
-}
 </style>

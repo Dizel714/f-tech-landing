@@ -51,11 +51,15 @@ function closeModal() {
         <SolutionsSection />
       </div>
 
-      <!-- 5. Декоративный разделитель -->
-      <DecorativeDivider />
-
-      <!-- 6. Экспертиза (Наши направления + картинка справа) -->
-      <ExpertiseSection />
+      <!-- 5. Декоративный разделитель + куб на границе с экспертизой -->
+      <div class="divider-joint">
+        <DecorativeDivider />
+        <div class="divider-joint__bridge" aria-hidden="true">
+          <img src="/cube-divider-2.png" alt="" class="divider-joint__cube" />
+        </div>
+        <!-- 6. Экспертиза (Наши направления + картинка справа) -->
+        <ExpertiseSection />
+      </div>
 
       <!-- 7. Технологический стек — отдельная секция -->
       <TechStackSection />
@@ -136,6 +140,29 @@ function closeModal() {
   height: 183px;
   z-index: 2;
   }
+
+  /* Граница DecorativeDivider / ExpertiseSection — куб слева */
+.divider-joint {
+  position: relative;
+}
+
+.divider-joint__bridge {
+  position: relative;
+  height: 0;
+  overflow: visible;
+  z-index: 10;
+}
+
+.divider-joint__cube {
+  position: absolute;
+  left: 80px;
+  top: -68px; /* половина высоты 196px */
+  width: 178px;
+  height: 196px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
 
 /* --- Анимация появления/исчезновения модального окна --- */
 .modal-fade-enter-active,
