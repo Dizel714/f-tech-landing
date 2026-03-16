@@ -3,35 +3,32 @@
 
 const legalInfo = {
   name: 'ООО «Ф Тех»',
-  inn: '7743123456',
-  kpp: '774301001',
-  address: '123456, г. Москва, ул. Новинский бульвар, д. 8, офис 301',
+  inn: '9710125709',
+  kpp: '770201001',
 }
 
 /* Вторая колонка: три блока текста */
 const infoBlocks = [
   {
     id: 1,
-    title: 'О компании',
-    text: 'Технологический партнёр для банков и финтех-компаний. Разрабатываем автоматизированные системы с 2015 года.',
+    text: 'ПО распространяется в виде интернет-сервиса, специальные действия по установке ПО на стороне пользователя не требуются.',
   },
   {
     id: 2,
-    title: 'Контакты',
-    text: 'info@ftech.ru\n+7 (495) 000-00-00',
+    text: 'Стоимость ПО рассчитывается индивидуально.',
   },
   {
     id: 3,
-    title: 'Режим работы',
-    text: 'Пн–Пт: 09:00–18:00 МСК',
+    title: 'Для определения стоимости позвоните по номеру: ',
+    text: '8 989 580 09 94',
   },
 ]
 
 /* Третья колонка: три ссылки с иконками */
 const docLinks = [
-  { id: 1, label: 'Руководство пользователя', href: '/docs/manual' },
-  { id: 2, label: 'Технологический стек', href: '#expertise' },
-  { id: 3, label: 'Форма обратной связи', href: '#cta' },
+  { id: 1, label: 'Руководство пользователя', href: '/docs/manual', icon: 'link-manual.svg' },
+  { id: 2, label: 'Технологический стек', href: '#expertise', icon: 'link-stack.svg' },
+  { id: 3, label: 'Форма обратной связи', href: '#cta', icon: 'link-feedback.svg' },
 ]
 </script>
 
@@ -43,16 +40,8 @@ const docLinks = [
 
         <!-- Колонка 1: Логотип + юридическая информация -->
         <div class="footer__col footer__col--brand">
-          <!-- Логотип — замени на SVG из Figma -->
           <a href="/" class="footer__logo" aria-label="На главную">
-            <span class="footer__logo-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect width="28" height="28" rx="7" fill="currentColor" fill-opacity="0.15"/>
-                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
-                      font-size="12" font-weight="700" fill="currentColor">ФТ</text>
-              </svg>
-            </span>
-            <span class="footer__logo-text">Ф Тех</span>
+            <img src="/logo-footer.svg" alt="Ф Тех" class="footer__logo-img" />
           </a>
 
           <address class="footer__legal">
@@ -61,6 +50,11 @@ const docLinks = [
             <p class="footer__legal-row">КПП: {{ legalInfo.kpp }}</p>
             <p class="footer__legal-row">{{ legalInfo.address }}</p>
           </address>
+
+          <div class="footer__address-block">
+            <p class="footer__legal-name">Юр.адрес:</p>
+            <p class="footer__legal-row">107031, г. Москва, <br> вн.тер.г. МО Мещанский, <br> ул. Кузнецкий Мост, 21/5</p>
+          </div>
         </div>
 
         <!-- Колонка 2: Три текстовых блока -->
@@ -89,11 +83,12 @@ const docLinks = [
               >
                 <!-- Иконка стрелки вправо -->
                 <span class="footer__link-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3.33 8H12.67M12.67 8L8.67 4M12.67 8L8.67 12"
-                      stroke="currentColor" stroke-width="1.5"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  <img
+                    v-if="link.icon"
+                    :src="link.icon"
+                    alt=""
+                    class="footer__link-icon-img"
+                  />
                 </span>
                 <a :href="link.href" class="footer__link">{{ link.label }}</a>
               </li>
@@ -122,9 +117,9 @@ const docLinks = [
 .footer {
   /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
-  background-color: var(--color-gray-800);
+  background-color: #F5F5F5;
   padding: var(--spacing-3xl) 0 0;
-  color: var(--color-gray-200);
+  color: #306AF2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,14 +148,10 @@ const docLinks = [
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  padding-left: 140px;
 }
 
 .footer__logo {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  /* ↓ Задай цвет логотипа */
-  color: var(--color-primary);
   transition: opacity var(--transition-fast);
 }
 
@@ -168,10 +159,10 @@ const docLinks = [
   opacity: 0.8;
 }
 
-.footer__logo-text {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-white);
+.footer__logo-img {
+  width: 285px;
+  height: 61px;
+  object-fit: contain;
 }
 
 .footer__legal {
@@ -181,17 +172,25 @@ const docLinks = [
   gap: var(--spacing-xs);
 }
 
+.footer__address-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 302px;
+  height: 90px;
+}
+
 .footer__legal-name {
   /* ↓ Задай font-weight и color по дизайну */
   font-weight: var(--font-weight-semibold);
-  color: var(--color-white);
+  color: #306AF2;
   font-size: var(--font-size-sm);
 }
 
 .footer__legal-row {
   /* ↓ Задай font-size и color по дизайну */
   font-size: var(--font-size-xs);
-  color: var(--color-gray-400);
+  color: #306AF2;
   line-height: var(--line-height-relaxed);
 }
 
@@ -200,6 +199,8 @@ const docLinks = [
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  width: 560px;
+  max-height: 392px;
 }
 
 .footer__info-block {
@@ -212,34 +213,71 @@ const docLinks = [
   /* ↓ Задай font-size и font-weight по дизайну */
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-white);
+  color: #306AF2;
 }
 
 .footer__info-text {
   /* ↓ Задай font-size и color по дизайну */
   font-size: var(--font-size-xs);
-  color: var(--color-gray-400);
+  color: #306AF2;
   line-height: var(--line-height-relaxed);
 }
+
+.footer__info-block:first-child .footer__info-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 40px;
+  color: #306AF2;
+}
+
+.footer__info-block:nth-child(2) .footer__info-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  color: #306AF2;
+}
+
+.footer__info-block:nth-child(3) .footer__info-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  color: #306AF2;
+}
+
+.footer__info-block:nth-child(3) .footer__info-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 36px;
+  color: #306AF2;
+}
+
 
 /* --- Вертикальный разделитель 1px --- */
 .footer__divider {
   width: 1px;
   align-self: stretch;
   /* ↓ Задай цвет вертикальной черты по дизайну */
-  background-color: var(--color-gray-600);
+  background-color: #C9E1FA;
   margin: 0 var(--spacing-md);
 }
 
 /* --- Колонка 3: Ссылки --- */
 .footer__col--links {
-  /* Флекс-колонка ссылок задаётся через список */
+  padding-left: 120px;
 }
 
 .footer__links-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-3xl);
 }
 
 .footer__link-item {
@@ -250,23 +288,37 @@ const docLinks = [
 
 .footer__link-icon {
   flex-shrink: 0;
-  color: var(--color-primary);
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__link-icon-img {
+  width: 37px;
+  height: 37px;
+  object-fit: contain;
 }
 
 .footer__link {
-  /* ↓ Задай font-size и hover-эффект по дизайну */
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-200);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-decoration-line: underline;
+  color: #000000;
   transition: color var(--transition-fast);
 }
 
 .footer__link:hover {
-  color: var(--color-white);
+  color: #615e5e;
 }
 
 /* --- Нижняя строка с копирайтом --- */
 .footer__bottom {
-  border-top: 1px solid var(--color-gray-600);
+  border-top: 1px solid #C9E1FA;
   padding: var(--spacing-md) 0;
   margin-top: 0;
 }

@@ -111,9 +111,11 @@ const solutions = [
    ========================================================================== */
 
 .solutions {
-  /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
-  background-color: var(--bg-section-alt);
+  background-image: url('/solutions-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: var(--spacing-4xl) 0;
   display: flex;
   justify-content: center;

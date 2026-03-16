@@ -41,13 +41,15 @@ function closeModal() {
       <HeroSection />
 
       <!-- 2. Блок с преимуществами (5 элементов, Grid 2 колонки) -->
-      <FeaturesSection />
-
-      <!-- 3. Декоративный разделитель -->
-      <DecorativeDivider />
-
-      <!-- 4. Наши решения (Grid 2×2) -->
-      <SolutionsSection />
+      <!-- 4. Наши решения (Grid 2×2) — секции соприкасаются, куб на границе -->
+      <div class="sections-joint">
+        <FeaturesSection />
+        <div class="sections-joint__bridge" aria-hidden="true">
+          <img src="/cube-divider.png" alt="" class="sections-joint__cube sections-joint__cube--first" />
+          <img src="/cube-divider-2.png" alt="" class="sections-joint__cube sections-joint__cube--second" />
+        </div>
+        <SolutionsSection />
+      </div>
 
       <!-- 5. Декоративный разделитель -->
       <DecorativeDivider />
@@ -98,8 +100,42 @@ function closeModal() {
 
 .app__main {
   flex: 1;
-  /* Нет дополнительного padding-top — каждая секция сама управляет отступами */
 }
+
+.sections-joint {
+  position: relative;
+}
+
+/* Нулевой div точно на границе двух секций */
+.sections-joint__bridge {
+  position: relative;
+  height: 0;
+  overflow: visible;
+  z-index: 10;
+}
+
+.sections-joint__cube {
+  position: absolute;
+  top: -121px;
+  width: 220px;
+  height: 243px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.sections-joint__cube--first {
+  right: 80px;
+  z-index: 1;
+}
+
+/* Второй куб правее первого, перекрытие ~10% (22px от ширины первого) */
+.sections-joint__cube--second {
+  right: 280px; /* = -118px */
+  top: calc(-113px / 2); /* центр по границе по своей высоте */
+  width: 166px;
+  height: 183px;
+  z-index: 2;
+  }
 
 /* --- Анимация появления/исчезновения модального окна --- */
 .modal-fade-enter-active,

@@ -45,8 +45,8 @@
   justify-content: center;
   align-items: flex-end;
 
-  /* ↓ Задай background: цвет, градиент или изображение по дизайну */
-  background-color: var(--bg-section-alt);
+  background: linear-gradient(180deg, rgba(154, 194, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border-radius: 10px;
 }
 
 /* --- Внутренний контейнер --- */
@@ -138,8 +138,10 @@
 
 /* --- Декоративная зона --- */
 .hero__visual {
-  flex: 0 0 100%;             /* фиксированная ширина визуала */
+  flex: 0 0 100%;
   max-width: 875px;
+  margin-bottom: calc(-1 * var(--spacing-3xl));
+  margin-right: calc(-1 * var(--container-padding));
 }
 
 .hero__visual-img {

@@ -1,27 +1,28 @@
 <script setup>
-/* Якорные ссылки навигации */
+import { ref, onMounted, onUnmounted } from 'vue'
+
 const navLinks = [
   { label: 'Наши решения', href: '#solutions' },
   { label: 'Экспертиза и технологии', href: '#expertise' },
   { label: 'Контакты', href: '#footer' },
 ]
+
+const isScrolled = ref(false)
+
+function onScroll() {
+  isScrolled.value = window.scrollY > 10
+}
+
+onMounted(() => window.addEventListener('scroll', onScroll))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--scrolled': isScrolled }">
     <div class="header__container">
 
-      <!-- Логотип — замени содержимое на SVG или img из Figma -->
       <a href="/" class="header__logo" aria-label="На главную">
-        <span class="header__logo-icon" aria-hidden="true">
-          <!-- ↓ Сюда вставь SVG-логотип из Figma -->
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="currentColor" fill-opacity="0.15"/>
-            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
-                  font-size="14" font-weight="700" fill="currentColor">ФТ</text>
-          </svg>
-        </span>
-        <span class="header__logo-text">Ф Тех</span>
+        <img src="/logo-footer.svg" alt="Ф Тех" class="header__logo-img" />
       </a>
 
       <!-- Навигация -->
@@ -55,9 +56,14 @@ const navLinks = [
 
   height: var(--header-height);
 
-  /* ↓ Задай цвет фона шапки, тень и border-bottom по дизайну */
+  background: linear-gradient(180deg, rgba(154, 194, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.header--scrolled {
   background-color: var(--bg-header);
-  backdrop-filter: blur(8px); /* матовый эффект стекла */
   box-shadow: var(--shadow-header);
 }
 
@@ -75,12 +81,7 @@ const navLinks = [
 
 /* --- Логотип --- */
 .header__logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-
-  /* ↓ Настрой цвет логотипа */
-  color: var(--color-primary);
+  display: inline-flex;
   transition: opacity var(--transition-fast);
 }
 
@@ -88,15 +89,10 @@ const navLinks = [
   opacity: 0.8;
 }
 
-.header__logo-icon {
-  flex-shrink: 0;
-}
-
-.header__logo-text {
-  /* ↓ Задай font-size, font-weight, letter-spacing по дизайну */
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  color: var(--color-text-primary);
+.header__logo-img {
+  width: 285px;
+  height: 61px;
+  object-fit: contain;
 }
 
 /* --- Навигация --- */
@@ -104,13 +100,17 @@ const navLinks = [
   display: flex;             /* три ссылки в ряд */
   align-items: center;
   gap: var(--spacing-xl);   /* ↓ Настрой расстояние между ссылками */
+  padding-right: 260px;
 }
 
 .header__nav-link {
-  /* ↓ Задай font-size, цвет и hover-эффект по дизайну */
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 47px;
+  text-align: center;
+  color: #000000;
   transition: color var(--transition-fast);
   white-space: nowrap;
 }
