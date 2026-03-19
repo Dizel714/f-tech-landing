@@ -13,11 +13,9 @@
         <p class="hero__description">
                    <strong>Создаём автоматизированные системы под задачи клиента:</strong> от аналитики до промышленной эксплуатации
         </p>
-        <a href="#solutions" class="hero__btn">
-          Ознакомиться с проектом
-          <img src="/icon-arrow-circle.svg" alt="" class="cta__btn-circle" aria-hidden="true" />
-                    <span class="hero__btn-circle">
-          </span>
+        <a href="/presentation.pdf" download class="hero__btn">
+          <span class="hero__btn-text">Ознакомиться с проектом</span>
+          <img src="/icon-arrow-circle.svg" alt="" class="hero__btn-icon" aria-hidden="true" />
         </a>
       </div>
 
@@ -94,15 +92,16 @@
 
 /* --- Кнопка CTA --- */
 .hero__btn {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 12px;
-  
+  white-space: nowrap;
 
   width: 460px;
   height: 90px;
-  padding: 0 24px;
+  padding: 0 10px 0 24px;
   border-radius: 50px;
   border: 3.85px solid #FFFFFF;
 
@@ -123,20 +122,17 @@
   transform: translateY(-1px);
 }
 
-.hero__btn-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 75px;
-  height: 75px;
-  flex-shrink: 0;
+.hero__btn-text {
+  flex: 1;
 }
 
 .hero__btn-icon {
-  width: 100%;
-  height: 100%;
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
   object-fit: contain;
 }
+
 
 
 /* --- Декоративная зона --- */
@@ -144,6 +140,8 @@
   flex: 0 0 875px;
   max-width: 875px;
   margin-bottom: calc(-1 * var(--spacing-3xl));
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .hero__visual-img {

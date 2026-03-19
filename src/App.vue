@@ -70,7 +70,7 @@ function closeModal() {
     </main>
 
     <!-- Подвал -->
-    <AppFooter />
+    <AppFooter @open-modal="openModal" />
 
     <!-- Модальное окно — рендерится поверх всего через Teleport -->
     <Teleport to="body">

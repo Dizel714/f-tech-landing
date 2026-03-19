@@ -85,7 +85,7 @@ const features = [
 .features__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-lg) var(--spacing-2xl);
+  gap: var(--spacing-4xl) var(--spacing-2xl);
   margin: 0 auto;
 
   /* ↓ Настрой gap между строками и колонками по дизайну */
@@ -141,8 +141,14 @@ const features = [
 }
 
 .features__chain-arrow {
-  color: #7DA6F6;
-  font-weight: var(--font-weight-bold);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 35px;
+  display: inline-flex;
+  align-items: center;
+  color: #5688F4;
 }
 
 /* --- Адаптив --- */

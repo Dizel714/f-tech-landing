@@ -1,7 +1,13 @@
 <script setup>
 import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
 
 const emit = defineEmits(['close'])
+
+/* EmailJS — замени на свои значения из личного кабинета emailjs.com */
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
 
 /* Состояние формы */
 const form = ref({
@@ -10,16 +16,36 @@ const form = ref({
   phone: '',
 })
 
-/* Согласие с политикой (текст без чекбокса) */
+const isSending = ref(false)
+const sendError = ref(false)
 
-function handleSubmit() {
-  /* ↓ Здесь добавь логику отправки формы (fetch / axios) */
-  console.log('Form submitted:', form.value)
-  emit('close')
+async function handleSubmit() {
+  isSending.value = true
+  sendError.value = false
+
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name:    form.value.name,
+        company:      form.value.company,
+        phone:        form.value.phone,
+        to_email:     'info@ftech.group',
+      },
+      EMAILJS_PUBLIC_KEY
+    )
+    emit('close')
+  } catch (err) {
+    console.error('EmailJS error:', err)
+    sendError.value = true
+  } finally {
+    isSending.value = false
+  }
 }
 
 function handleBackdropClick(event) {
-  /* Закрываем модалку при клике на оверлей (не на контент) */
+
   if (event.target === event.currentTarget) {
     emit('close')
   }
@@ -103,9 +129,10 @@ function handleBackdropClick(event) {
 
           <!-- Нижний блок: кнопка и текст по центру -->
           <div class="modal__form-footer">
-            <button class="modal__submit" type="submit">
-              Отправить
+            <button class="modal__submit" type="submit" :disabled="isSending">
+              {{ isSending ? 'Отправка...' : 'Отправить' }}
             </button>
+            <p v-if="sendError" class="modal__send-error">Ошибка отправки. Попробуйте ещё раз.</p>
             <div class="modal__policy">
               <span class="modal__policy-text">
                 Нажимая кнопку «Отправить», Вы соглашаетесь с
@@ -214,7 +241,7 @@ function handleBackdropClick(event) {
 }
 
 .modal__info-text {
-font-family: 'Inter';
+font-family: 'Inter', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -341,6 +368,12 @@ color: #000000;
   color: #7A7A7A;
 }
 
+.modal__send-error {
+  font-size: 14px;
+  color: #e53935;
+  text-align: center;
+}
+
 .modal__policy-link {
     font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -349,7 +382,6 @@ color: #000000;
   line-height: 31px;
   text-align: center;
   color: #306AF2;
-  text-decoration: underline;
 }
 
 /* --- Адаптив --- */

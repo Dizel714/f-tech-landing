@@ -63,9 +63,10 @@ const directions = [
   /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
   background-color: var(--bg-page);
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-4xl) 0 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 /* --- Контейнер --- */
@@ -121,7 +122,7 @@ const directions = [
 .expertise__direction-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xl);
 }
 
 .expertise__direction-icon {
@@ -142,7 +143,7 @@ const directions = [
 /* --- Правая область под картинку --- */
 .expertise__image-area {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
   padding-top: var(--spacing-4xl);
 }
@@ -153,6 +154,8 @@ const directions = [
   object-fit: contain;
   display: block;
   transform: scaleX(-1);
+  margin-bottom: 0;
+  vertical-align: bottom;
 }
 
 /* --- Адаптив --- */

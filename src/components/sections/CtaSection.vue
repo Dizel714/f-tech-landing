@@ -99,7 +99,7 @@ function handleClick() {
 }
 
 .cta__subtitle {
-font-family: 'Inter';
+font-family: 'Inter', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 28px;

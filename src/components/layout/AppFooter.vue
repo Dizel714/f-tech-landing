@@ -1,6 +1,9 @@
 <script setup>
 /* AppFooter — подвал в три колонки */
 
+const emit = defineEmits(['open-modal'])
+
+
 const legalInfo = {
   name: 'ООО «Ф Тех»',
   inn: '9710125709',
@@ -26,9 +29,9 @@ const infoBlocks = [
 
 /* Третья колонка: три ссылки с иконками */
 const docLinks = [
-  { id: 1, label: 'Руководство пользователя', href: '/docs/manual', icon: 'link-manual.svg' },
-  { id: 2, label: 'Технологический стек', href: '#expertise', icon: 'link-stack.svg' },
-  { id: 3, label: 'Форма обратной связи', href: '#cta', icon: 'link-feedback.svg' },
+  { id: 1, label: 'Руководство пользователя', href: '/user-manual.docx', icon: 'link-manual.svg', download: true },
+  { id: 2, label: 'Технологический стек', href: '/tech-stack.docx', icon: 'link-stack.svg', download: true },
+  { id: 3, label: 'Форма обратной связи', href: null, icon: 'link-feedback.svg', modal: true },
 ]
 </script>
 
@@ -90,7 +93,18 @@ const docLinks = [
                     class="footer__link-icon-img"
                   />
                 </span>
-                <a :href="link.href" class="footer__link">{{ link.label }}</a>
+                                <a
+                  v-if="!link.modal"
+                  :href="link.href"
+                  :download="link.download || null"
+                  class="footer__link"
+                >{{ link.label }}</a>
+                <button
+                  v-else
+                  class="footer__link footer__link--btn"
+                  type="button"
+                  @click="emit('open-modal')"
+                >{{ link.label }}</button>
               </li>
             </ul>
           </nav>
@@ -184,12 +198,12 @@ const docLinks = [
   /* ↓ Задай font-weight и color по дизайну */
   font-weight: var(--font-weight-semibold);
   color: #306AF2;
-  font-size: var(--font-size-sm);
+  font-size: 20px;
 }
 
 .footer__legal-row {
   /* ↓ Задай font-size и color по дизайну */
-  font-size: var(--font-size-xs);
+  font-size: 20px;
   color: #306AF2;
   line-height: var(--line-height-relaxed);
 }
@@ -302,7 +316,7 @@ const docLinks = [
 }
 
 .footer__link {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -315,6 +329,15 @@ const docLinks = [
 .footer__link:hover {
   color: #615e5e;
 }
+
+.footer__link--btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
 
 /* --- Нижняя строка с копирайтом --- */
 .footer__bottom {
