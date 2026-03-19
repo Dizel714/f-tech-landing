@@ -15,10 +15,8 @@
         </p>
         <a href="#solutions" class="hero__btn">
           Ознакомиться с проектом
+          <img src="/icon-arrow-circle.svg" alt="" class="cta__btn-circle" aria-hidden="true" />
                     <span class="hero__btn-circle">
-            <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 2L12.5 9L2 16" stroke="#FFFFFF" stroke-width="3.85" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
           </span>
         </a>
       </div>
@@ -96,11 +94,11 @@
 
 /* --- Кнопка CTA --- */
 .hero__btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
-  align-self: flex-start;
+  
 
   width: 460px;
   height: 90px;
@@ -109,8 +107,8 @@
   border: 3.85px solid #FFFFFF;
 
   /* ↓ Задай цвет фона, цвет текста и hover-эффект по дизайну */
-  background-color: var(--color-primary);
-  font-family: 'Inter';
+  background-color: #306AF2;
+  font-family: 'Inter', sans-serif; 
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -126,14 +124,18 @@
 }
 
 .hero__btn-circle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 75px;
   height: 75px;
-  border-radius: 50%;
-  background-color: #A3C3F8;
   flex-shrink: 0;
+}
+
+.hero__btn-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 
