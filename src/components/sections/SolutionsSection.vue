@@ -256,4 +256,95 @@ const solutions = [
   color: #000000;
 }
 
+/* --- Адаптив --- */
+@media (max-width: 1440px) {
+  .solutions__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .solution-card {
+    width: 100%;
+  }
+
+  .solution-card:nth-child(1),
+  .solution-card:nth-child(2),
+  .solution-card:nth-child(3),
+  .solution-card:nth-child(4) {
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .solutions__heading {
+    font-size: 36px;
+  }
+
+  .solution-card__title {
+    font-size: 28px;
+  }
+
+  .solution-card__description {
+    font-size: 20px;
+  }
+
+  .solution-card__advantage-text,
+  .solution-card__advantages-heading {
+    font-size: 20px;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 793px) {
+  .solutions__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solutions__heading {
+    font-size: 28px;
+  }
+
+  .solution-card__title {
+    font-size: 22px;
+  }
+
+  .solution-card__description {
+    font-size: 17px;
+  }
+
+  .solution-card__advantage-text,
+  .solution-card__advantages-heading {
+    font-size: 17px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .solutions__heading {
+    font-size: 22px;
+  }
+
+  .solution-card {
+    padding: var(--spacing-md);
+  }
+
+  .solution-card__title {
+    font-size: 18px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .solution-card__description {
+    font-size: 14px;
+  }
+
+  .solution-card__advantage-text,
+  .solution-card__advantages-heading {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  .solution-card__advantage-item {
+    gap: var(--spacing-md);
+  }
+}
+
 </style>

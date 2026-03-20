@@ -385,13 +385,92 @@ color: #000000;
 }
 
 /* --- Адаптив --- */
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
+  .modal {
+    width: 90vw;
+    height: auto;
+    min-height: 560px;
+  }
+
+  .modal__input {
+    width: 100%;
+  }
+
+  .modal__submit {
+    width: 280px;
+  }
+}
+
+@media (max-width: 793px) {
+  .modal {
+    width: 95vw;
+    height: auto;
+    padding: var(--spacing-xl);
+  }
+
   .modal__body {
     grid-template-columns: 1fr;
   }
 
+  .modal__info {
+    padding-top: var(--spacing-md);
+  }
+
+  .modal__info-title {
+    font-size: 22px;
+  }
+
+  .modal__form {
+    padding-top: var(--spacing-md);
+  }
+
+  .modal__form-footer {
+    position: static;
+    transform: none;
+    margin-top: var(--spacing-xl);
+  }
+
+  .modal__input {
+    width: 100%;
+  }
+
+  .modal__submit {
+    width: 100%;
+  }
+
+  .modal__label {
+    font-size: 15px;
+  }
+
+  .modal__policy-text,
+  .modal__policy-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
   .modal {
     padding: var(--spacing-lg);
+    width: 100vw;
+    border-radius: 0;
+  }
+
+  .modal__info-title {
+    font-size: 18px;
+  }
+
+  .modal__label {
+    font-size: 13px;
+  }
+
+  .modal__input {
+    font-size: 14px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .modal__submit {
+    height: 50px;
+    font-size: 15px;
   }
 }
 </style>

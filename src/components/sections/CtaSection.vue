@@ -140,4 +140,109 @@ color: #000000;
   flex-shrink: 0;
 }
 
+/* --- Адаптив --- */
+@media (max-width: 1440px) {
+  .cta__card {
+    width: 100%;
+    height: auto;
+    padding: 80px var(--spacing-3xl);
+  }
+
+  .cta__content {
+    width: 100%;
+    max-width: 874px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cta__card {
+    padding: 60px var(--spacing-2xl);
+    border-radius: 20px;
+  }
+
+  .cta__title {
+    font-size: 24px;
+  }
+
+  .cta__subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .cta__btn {
+    width: 360px;
+    height: 72px;
+    font-size: 20px;
+  }
+
+  .cta__btn-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .cta__text {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 793px) {
+  .cta__card {
+    padding: 48px var(--spacing-xl);
+    border-radius: 16px;
+  }
+
+  .cta__title {
+    font-size: 20px;
+  }
+
+  .cta__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .cta__btn {
+    width: 280px;
+    height: 60px;
+    font-size: 16px;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .cta__btn-icon {
+    width: 46px;
+    height: 46px;
+    margin-left: 12px;
+  }
+
+  .cta__text {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 375px) {
+  .cta__card {
+    padding: 36px var(--spacing-md);
+    border-radius: 12px;
+  }
+
+  .cta__title {
+    font-size: 18px;
+  }
+
+  .cta__subtitle {
+    font-size: 14px;
+  }
+
+  .cta__btn {
+    width: 100%;
+    height: 54px;
+    font-size: 14px;
+  }
+
+  .cta__btn-icon {
+    width: 38px;
+    height: 38px;
+    margin-left: 8px;
+  }
+}
+
 </style>

@@ -159,13 +159,74 @@ const directions = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .expertise__heading {
+    font-size: 36px;
+  }
+
+  .expertise__directions-text {
+    font-size: 22px;
+    line-height: 56px;
+  }
+
+  .expertise__visual-img {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media (max-width: 793px) {
   .expertise__body {
     grid-template-columns: 1fr;
   }
 
   .expertise__heading {
-    font-size: var(--font-size-2xl);
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .expertise__directions-title {
+    font-size: 22px;
+  }
+
+  .expertise__direction-text {
+    font-size: 20px;
+    line-height: 52px;
+  }
+
+  .expertise__image-area {
+    justify-content: center;
+  }
+
+  .expertise__visual-img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 375px) {
+  .expertise__heading {
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .expertise__directions-title {
+    font-size: 18px;
+  }
+
+  .expertise__direction-text {
+    font-size: 16px;
+    line-height: 40px;
+  }
+
+  .expertise__direction-item {
+    gap: var(--spacing-md);
+  }
+
+  .expertise__visual-img {
+    max-width: 320px;
   }
 }
 </style>

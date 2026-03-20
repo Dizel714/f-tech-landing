@@ -118,4 +118,65 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .header__nav-link:hover {
   color: var(--color-primary);
 }
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .header__logo-img {
+    width: 220px;
+    height: 48px;
+  }
+
+  .header__nav-list {
+    gap: var(--spacing-lg);
+    padding-right: 40px;
+  }
+
+  .header__nav-link {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 793px) {
+  .header__logo-img {
+    width: 180px;
+    height: 40px;
+  }
+
+  .header__nav-list {
+    gap: var(--spacing-md);
+    padding-right: 16px;
+  }
+
+  .header__nav-link {
+    font-size: 16px;
+    line-height: 36px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header__container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--container-padding);
+  }
+
+  .header__logo-img {
+    width: 150px;
+    height: 32px;
+  }
+
+  .header__nav-list {
+    gap: var(--spacing-sm);
+    padding-right: 0;
+    flex-wrap: wrap;
+  }
+
+  .header__nav-link {
+    font-size: 13px;
+    line-height: 28px;
+  }
+}
 </style>

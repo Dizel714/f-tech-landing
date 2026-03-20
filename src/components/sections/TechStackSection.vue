@@ -161,14 +161,48 @@ const techStack = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .tech-stack__category {
+    font-size: 22px;
+    flex: 0 0 120px;
+  }
+
+  .tech-stack__heading {
+    font-size: 24px;
+  }
+
+  .tech-stack__visual {
+    right: 20%;
+    width: 260px;
+    height: 260px;
+  }
+}
+
+@media (max-width: 793px) {
   .tech-stack__row {
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--spacing-sm);
   }
 
   .tech-stack__category {
     flex: none;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .tech-stack__visual {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .tech-stack__heading {
+    font-size: 20px;
+  }
+
+  .tech-stack__category {
+    font-size: 16px;
   }
 }
 </style>

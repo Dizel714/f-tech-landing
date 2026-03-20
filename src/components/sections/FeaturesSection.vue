@@ -152,9 +152,52 @@ const features = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .features__item-text,
+  .features__chain-step {
+    font-size: 26px;
+    line-height: 28px;
+  }
+
+  .features__chain-arrow {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 793px) {
   .features__grid {
     grid-template-columns: 1fr;
+  }
+
+  .features__item-text,
+  .features__chain-step {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .features__chain-arrow {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .features__item-text,
+  .features__chain-step {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .features__chain-arrow {
+    font-size: 16px;
+  }
+
+  .features__item {
+    gap: var(--spacing-sm);
   }
 }
 </style>
