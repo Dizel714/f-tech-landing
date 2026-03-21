@@ -1,13 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import emailjs from '@emailjs/browser'
 
 const emit = defineEmits(['close'])
 
-/* EmailJS — замени на свои значения из личного кабинета emailjs.com */
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
+const YC_FUNCTION_URL = 'https://functions.yandexcloud.net/d4eojpdddb0saav6rfo2'
 
 /* Состояние формы */
 const form = ref({
@@ -24,20 +20,27 @@ async function handleSubmit() {
   sendError.value = false
 
   try {
-    await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        from_name:    form.value.name,
-        company:      form.value.company,
-        phone:        form.value.phone,
-        to_email:     'info@ftech.group',
+    const response = await fetch(YC_FUNCTION_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-      EMAILJS_PUBLIC_KEY
-    )
+      body: JSON.stringify({
+        name: form.value.name,
+        company: form.value.company,
+        phone: form.value.phone,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Ошибка сервера: ${response.status}`)
+    }
+
+    // Если всё ок, закрываем модалку
     emit('close')
+
   } catch (err) {
-    console.error('EmailJS error:', err)
+    console.error('Ошибка при отправке формы:', err)
     sendError.value = true
   } finally {
     isSending.value = false
@@ -45,7 +48,6 @@ async function handleSubmit() {
 }
 
 function handleBackdropClick(event) {
-
   if (event.target === event.currentTarget) {
     emit('close')
   }
@@ -54,19 +56,13 @@ function handleBackdropClick(event) {
 
 <template>
   <!-- Оверлей (backdrop) -->
-  <div
-    class="modal-overlay"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modal-title"
-    @click="handleBackdropClick"
-  >
+  <div class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" @click="handleBackdropClick">
     <div class="modal">
 
       <!-- Кнопка закрытия -->
       <button class="modal__close" type="button" aria-label="Закрыть" @click="$emit('close')">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
       </button>
 
@@ -88,42 +84,22 @@ function handleBackdropClick(event) {
             <!-- Поле: Имя* -->
             <div class="modal__field">
               <label class="modal__label" for="modal-name">Имя*</label>
-              <input
-                id="modal-name"
-                v-model="form.name"
-                class="modal__input"
-                type="text"
-                placeholder="Иван"
-                required
-                autocomplete="name"
-              />
+              <input id="modal-name" v-model="form.name" class="modal__input" type="text" placeholder="Иван" required
+                autocomplete="name" />
             </div>
 
             <!-- Поле: Компания -->
             <div class="modal__field">
               <label class="modal__label" for="modal-company">Компания*</label>
-              <input
-                id="modal-company"
-                v-model="form.company"
-                class="modal__input"
-                type="text"
-                placeholder="Название компании»"
-                autocomplete="organization"
-              />
+              <input id="modal-company" v-model="form.company" class="modal__input" type="text"
+                placeholder="Название компании»" autocomplete="organization" />
             </div>
 
             <!-- Поле: Телефон -->
             <div class="modal__field">
               <label class="modal__label" for="modal-phone">Телефон*</label>
-              <input
-                id="modal-phone"
-                v-model="form.phone"
-                class="modal__input"
-                type="tel"
-                placeholder="+7..."
-                required
-                autocomplete="tel"
-              />
+              <input id="modal-phone" v-model="form.phone" class="modal__input" type="tel" placeholder="+7..." required
+                autocomplete="tel" />
             </div>
           </div>
 
@@ -157,7 +133,8 @@ function handleBackdropClick(event) {
 /* --- Оверлей (backdrop) --- */
 .modal-overlay {
   position: fixed;
-  inset: 0;                  /* top/right/bottom/left: 0 */
+  inset: 0;
+  /* top/right/bottom/left: 0 */
   z-index: 200;
 
   display: flex;
@@ -241,12 +218,12 @@ function handleBackdropClick(event) {
 }
 
 .modal__info-text {
-font-family: 'Inter', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 31px;
-color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  color: #000000;
 
 }
 
@@ -262,7 +239,7 @@ color: #000000;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-    flex: 1;
+  flex: 1;
   min-height: 0;
 }
 
@@ -302,7 +279,7 @@ color: #000000;
 
   border: 1px solid var(--color-gray-200);
   background: rgba(201, 225, 250, 0.57);
-  
+
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -375,7 +352,7 @@ color: #000000;
 }
 
 .modal__policy-link {
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
