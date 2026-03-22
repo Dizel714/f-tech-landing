@@ -63,7 +63,6 @@ const features = [
 .features {
   width: 100%;
   background: rgba(154, 194, 255, 0.15);
-  border-radius: 10px;
   padding: var(--spacing-3xl) 0;
   display: flex;
   justify-content: center;

@@ -34,21 +34,25 @@
 
 .hero {
   width: 100%;
-  min-height: calc(100vh / 3 * 2);
+  min-height: 100vh;
   padding-top: var(--header-height);
-
   display: flex;
   justify-content: center;
   align-items: flex-end;
-
   background: linear-gradient(180deg, rgba(154, 194, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
-  border-radius: 10px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  /* Клипинг без создания scroll-контекста: горизонтальное переполнение от картинки
+     обрезается по правому краю секции, а вертикальный overlap на следующую секцию сохраняется */
+  overflow-x: clip;
 }
 
 /* --- Внутренний контейнер --- */
 .hero__container {
   display: flex;             /* контент слева, визуал справа */
   align-items: flex-end;
+  gap: var(--spacing-xl);    /* зазор между текстом и картинкой — без наложения */
   
   max-width: var(--container-max);
   width: 100%;
@@ -58,7 +62,8 @@
 
 /* --- Текстовый блок --- */
 .hero__content {
-  flex: 1;
+  flex: 1 0 320px; /* flex-shrink: 0 — текст не сжимается, картинка уступает место */
+  min-width: 0;
   max-width: 812px;
 
   display: flex;
@@ -68,7 +73,8 @@
 }
 
 .hero__title {
-  width: 842px;
+  width: 100%;
+  max-width: 100%;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-size: 50px;
@@ -137,7 +143,8 @@
 
 /* --- Декоративная зона --- */
 .hero__visual {
-  flex: 0 0 875px;
+  flex: 0 1 875px; /* flex-shrink: 1 — картинка сжимается, не расширяя контейнер */
+  min-width: 0;
   max-width: 875px;
   margin-bottom: calc(-1 * var(--spacing-3xl));
   margin-left: auto;
@@ -159,7 +166,7 @@
   }
 
   .hero__visual {
-    flex: 0 0 700px;
+    flex: 0 1 700px;
     max-width: 700px;
   }
 }
@@ -192,8 +199,10 @@
   }
 
   .hero__visual {
-    flex: 0 0 480px;
+    flex: 0 1 480px;
     max-width: 480px;
+    /* padding-bottom контейнера = --spacing-2xl (48px), подгоняем отрицательный отступ */
+    margin-bottom: calc(-1 * var(--spacing-2xl));
   }
 }
 
