@@ -162,13 +162,25 @@
 @media (max-width: 1440px) {
   .hero__title {
     width: 100%;
-    font-size: 44px;
+    font-size: 37.5px;
+    line-height: 50px;
+    font-style: normal;
   }
 
   .hero__visual {
     flex: 0 1 700px;
     max-width: 700px;
   }
+
+  .hero__description {
+    font-size: 28.5px;
+    line-height: 38px;
+  }
+
+  .hero__btn {
+  font-size: 21px;
+  line-height: 44px;
+}
 }
 
 @media (max-width: 1024px) {
@@ -177,20 +189,20 @@
   }
 
   .hero__title {
-    font-size: 36px;
-    line-height: 50px;
     width: 100%;
+    font-size: 32px;
+    line-height: 43px;
   }
 
   .hero__description {
-    font-size: 26px;
-    line-height: 36px;
+    font-size: 24.32px;
+    line-height: 32px;
   }
 
   .hero__btn {
     width: 360px;
     height: 72px;
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .hero__btn-icon {
@@ -207,62 +219,89 @@
 }
 
 @media (max-width: 793px) {
+  .hero {
+    align-items: center; /* блок hero по центру по горизонтали */
+  }
+
   .hero__container {
     flex-direction: column;
-    align-items: flex-start;
-    padding: var(--spacing-2xl) var(--container-padding);
+    align-items: center; /* колонка: заголовок → текст → кнопка → картинка по центру */
+    justify-content: flex-start;
+    /* Больше отступов от краёв — уже колонка с текстом */
+    padding: var(--spacing-2xl) 45px;
   }
 
   .hero__content {
+    flex: none;
+    width: 100%;
     max-width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
   }
 
   .hero__title {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 25px;
+    line-height: 34px;
   }
 
   .hero__description {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 19px;
+    line-height: 25px;
   }
 
   .hero__btn {
     width: 300px;
+    max-width: 100%;
     height: 60px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .hero__visual {
     flex: none;
     width: 100%;
     max-width: 100%;
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__visual-img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .hero__btn-icon {
+  width: 37px;
+  height: 37px;
   }
 }
 
+
 @media (max-width: 375px) {
   .hero__title {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 32px;
   }
 
   .hero__description {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
   }
 
   .hero__btn {
     width: 100%;
     height: 54px;
-    font-size: 14px;
+    font-size: 10px;
     padding: 0 16px;
   }
 
   .hero__btn-icon {
-    width: 44px;
-    height: 44px;
+    width: 35px;
+    height: 35px;
   }
 }
 </style>

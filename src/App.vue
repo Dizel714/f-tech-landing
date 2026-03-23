@@ -108,6 +108,12 @@ function closeModal() {
 
 .sections-joint {
   position: relative;
+  /* Размеры кубов + отступ первого — перекрытие второго 20% ширины первого */
+  --joint-cube-first-w: 220px;
+  --joint-cube-first-h: 243px;
+  --joint-cube-second-w: 166px;
+  --joint-cube-second-h: 183px;
+  --joint-cube-first-r: 80px;
 }
 
 /* Нулевой div точно на границе двух секций */
@@ -120,28 +126,65 @@ function closeModal() {
 
 .sections-joint__cube {
   position: absolute;
-  top: -121px;
-  width: 220px;
-  height: 243px;
   object-fit: contain;
   pointer-events: none;
+    /* Верх мостика = линия стыка секций; центр куба на этой линии */
+  top: 0;
+  transform: translateY(-50%);
 }
 
 .sections-joint__cube--first {
-  right: 80px;
+  right: var(--joint-cube-first-r);
   z-index: 1;
+  width: var(--joint-cube-first-w);
+  height: var(--joint-cube-first-h);
 }
 
-/* Второй куб правее первого, перекрытие ~10% (22px от ширины первого) */
+/* Второй куб: 20% ширины первого; центр по той же горизонтали границы */
 .sections-joint__cube--second {
-  right: 280px; /* = -118px */
-  top: calc(-113px / 2); /* центр по границе по своей высоте */
-  width: 166px;
-  height: 183px;
+  right: calc(var(--joint-cube-first-r) + 0.8 * var(--joint-cube-first-w));
+  width: var(--joint-cube-second-w);
+  height: var(--joint-cube-second-h);
   z-index: 2;
-  }
+}
 
-  /* Граница DecorativeDivider / ExpertiseSection — куб слева */
+@media (max-width: 1440px) {
+  .sections-joint {
+    --joint-cube-first-w: 165px;
+    --joint-cube-first-h: 182px;
+    --joint-cube-second-w: 124px;
+    --joint-cube-second-h: 137px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sections-joint {
+    --joint-cube-first-w: 117px;
+    --joint-cube-first-h: 129px;
+    --joint-cube-second-w: 88px;
+    --joint-cube-second-h: 97px;
+  }
+}
+
+@media (max-width: 793px) {
+  .sections-joint {
+    --joint-cube-first-w: 91px;
+    --joint-cube-first-h: 101px;
+    --joint-cube-second-w: 69px;
+    --joint-cube-second-h: 76px;
+  }
+}
+
+@media (max-width: 375px) {
+  .sections-joint {
+    --joint-cube-first-w: 87px;
+    --joint-cube-first-h: 96px;
+    --joint-cube-second-w: 65px;
+    --joint-cube-second-h: 72px;
+  }
+}
+
+/* Граница DecorativeDivider / ExpertiseSection — куб слева */
 .divider-joint {
   position: relative;
 }
@@ -175,3 +218,4 @@ function closeModal() {
   opacity: 0;
 }
 </style>
+

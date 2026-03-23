@@ -151,44 +151,108 @@ const features = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1024px) {
-  .features__item-text,
+@media (max-width: 1440px) {
+  .features__item-text {
+  font-size: 25px;
+  line-height: 26px;
+  }
+
   .features__chain-step {
-    font-size: 26px;
-    line-height: 28px;
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  .features__item-icon img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+    .features__item-text {
+  font-size: 22px;
+  line-height: 22px;
+  text-align: center;
+  text-align: left;
+  }
+
+  .features__chain-step {
+    font-size: 22px;
+    line-height: 22px;
   }
 
   .features__chain-arrow {
     font-size: 26px;
+  }
+
+    .features__container {
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    width: 100%;
+    gap: var(--spacing-xl);
+  }
+
+  .features__item {
+    justify-content: flex-start;
+    align-items: center; /* середина текста по вертикали = середина иконки */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .features__item-text--chain {
+    text-align: left;
+  }
+
+  .features__chain {
+    justify-content: flex-start;
+  }
+
+  .features__item-icon img {
+    width: 69px;
+    height: 69px;
   }
 }
 
 @media (max-width: 793px) {
-  .features__grid {
-    grid-template-columns: 1fr;
+
+  .features__item-text {
+  font-size: 17px;
+  line-height: 18px;
   }
 
-  .features__item-text,
   .features__chain-step {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 17px;
+    line-height: 18px;
   }
 
   .features__chain-arrow {
     font-size: 20px;
+  }
+
+  .features__item-icon img {
+    width: 54px;
+    height: 54px;
   }
 }
 
 @media (max-width: 375px) {
   .features__grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-xl);
   }
 
-  .features__item-text,
+  .features__item-text {
+  font-size: 16px;
+  line-height: 17px;
+  }
   .features__chain-step {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 17px;
   }
 
   .features__chain-arrow {
@@ -197,6 +261,11 @@ const features = [
 
   .features__item {
     gap: var(--spacing-sm);
+  }
+
+  .features__item-icon img {
+    width: 50px;
+    height: 50px;
   }
 }
 </style>
