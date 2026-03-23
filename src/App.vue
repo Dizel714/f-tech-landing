@@ -207,6 +207,34 @@ function closeModal() {
   z-index: 2;
 }
 
+@media (max-width: 1440px) {
+  .divider-joint__cube {
+    width: 133px;
+    height: 147px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .divider-joint__cube {
+    width: 114px;
+    height: 125px;
+  }
+}
+
+@media (max-width: 793px) {
+  .divider-joint__cube {
+    width: 85px;
+    height: 98px;
+  }
+}
+
+@media (max-width: 375px) {
+  .divider-joint__cube {
+    width: 63px;
+    height: 69px;
+  }
+}
+
 /* --- Анимация появления/исчезновения модального окна --- */
 .modal-fade-enter-active,
 .modal-fade-leave-active {

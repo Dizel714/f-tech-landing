@@ -92,7 +92,7 @@ const solutions = [
               >
                 <!-- Иконка галочки -->
                 <span class="solution-card__check-icon" aria-hidden="true">
-                  <img src="/icon-check-solution.svg" alt="" width="33" height="33" />
+                  <img src="/icon-check-solution.svg" alt="" />
                 </span>
                 <span class="solution-card__advantage-text">{{ item }}</span>
               </li>
@@ -243,8 +243,19 @@ const solutions = [
 
 .solution-card__check-icon {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
   color: var(--color-icon-check);
-  margin-top: 2px;
+}
+
+.solution-card__check-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .solution-card__advantage-text {
@@ -262,6 +273,10 @@ const solutions = [
   .solutions__heading {
   font-size: 38px;
   line-height: 38px;
+  }
+
+  .solution-card {
+    gap: var(--spacing-lg);
   }
 
   .solution-card__title {
@@ -287,6 +302,14 @@ const solutions = [
     line-height: 22px;
   }
 
+  .solution-card__advantages-list {
+    gap: var(--spacing-md);
+  }
+
+  .solution-card__advantages-heading {
+    margin-bottom: var(--spacing-lg);
+  }
+
   .solution-card__check-icon {
   width: 24px;
   height: 24px;
@@ -298,6 +321,11 @@ const solutions = [
   font-size: 28px;
   line-height: 27px;
   }
+
+  .solution-card {
+    gap: var(--spacing-lg);
+  }
+
 
   .solutions__grid {
     grid-template-columns: 1fr;
@@ -320,6 +348,14 @@ const solutions = [
     line-height: 19px;
   }
 
+  .solution-card__advantages-list {
+    gap: var(--spacing-md);
+  }
+
+  .solution-card__advantages-heading {
+    margin-bottom: var(--spacing-lg);
+  }
+
   .solution-card__check-icon {
   width: 21px;
   height: 21px;
@@ -331,6 +367,11 @@ const solutions = [
   font-size: 22px;
   line-height: 21px;
   }
+
+  .solution-card {
+    gap: var(--spacing-lg);
+  }
+
 
   .solution-card__title {
   font-size: 19px;
@@ -346,6 +387,14 @@ const solutions = [
   .solution-card__advantages-heading {
     font-size: 13px;
     line-height: 15px;
+  }
+
+    .solution-card__advantages-list {
+    gap: var(--spacing-lg);
+  }
+
+  .solution-card__advantages-heading {
+    margin-bottom: var(--spacing-lg);
   }
 
     .solution-card__check-icon {
@@ -383,6 +432,14 @@ const solutions = [
 
   .solution-card__advantage-item {
     gap: var(--spacing-md);
+  }
+
+  .solution-card__advantages-list {
+    gap: var(--spacing-lg);
+  }
+
+  .solution-card__advantages-heading {
+    margin-bottom: var(--spacing-lg);
   }
 
   .solution-card__check-icon {
