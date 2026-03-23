@@ -76,4 +76,32 @@ defineProps({
 .tech-chip__sublabel {
   font-weight: 400;
 }
+
+@media (max-width: 1440px) {
+  .tech-chip {
+    font-size: 21px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tech-chip {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 793px) {
+  .tech-chip {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 375px) {
+  .tech-chip {
+    font-size: 13px;
+    line-height: 17px;
+  }
+}
 </style>

@@ -170,9 +170,14 @@ const directions = [
     line-height: 28px;
   }
 
-  .expertise__directions-text {
+  .expertise__direction-text {
     font-size: 21px;
     line-height: 53px;
+  }
+
+  .expertise__direction-icon img {
+    width: 19px;
+    height: 13px;
   }
 }
 
@@ -195,7 +200,7 @@ const directions = [
     line-height: 24px;
   }
 
-  .expertise__directions-text {
+  .expertise__direction-text {
     font-size: 18px;
     line-height: 44px;
   }
@@ -210,6 +215,11 @@ const directions = [
     width: 100%;
     height: auto;
     max-width: 600px;
+  }
+
+  .expertise__direction-icon img {
+    width: 16px;
+    height: 11px;
   }
 }
 
@@ -240,6 +250,11 @@ const directions = [
   .expertise__visual-img {
     max-width: 500px;
   }
+
+  .expertise__direction-icon img {
+    width: 12px;
+    height: 9px;
+  }
 }
 
 @media (max-width: 375px) {
@@ -265,6 +280,11 @@ const directions = [
 
   .expertise__visual-img {
     max-width: 320px;
+  }
+
+  .expertise__direction-icon img {
+    width: 12px;
+    height: 8px;
   }
 }
 </style>

@@ -51,34 +51,37 @@ const techStack = [
 
 <template>
   <section class="tech-stack" id="tech-stack">
-    <img src="/techstack-visual.png" alt="" class="tech-stack__visual" />
-    <div class="tech-stack__container">
-      <h2 class="tech-stack__heading">Технологический стек:</h2>
+    <div class="tech-stack__inner">
+      <div class="tech-stack__container">
+        <h2 class="tech-stack__heading">Технологический стек:</h2>
 
-      <ul class="tech-stack__list">
-        <li
-          v-for="category in techStack"
-          :key="category.id"
-          class="tech-stack__row"
-        >
-          <!-- Название направления -->
-          <span class="tech-stack__category">{{ category.label }}</span>
+        <ul class="tech-stack__list">
+          <li
+            v-for="category in techStack"
+            :key="category.id"
+            class="tech-stack__row"
+          >
+            <!-- Название направления -->
+            <span class="tech-stack__category">{{ category.label }}</span>
 
-          <!-- Строка с чипсами — flex-row -->
-          <div class="tech-stack__chips">
-          <TechChip
-            v-for="tech in category.technologies"
-            :key="tech.name"
-            :label="tech.name"
-            :sublabel="tech.sublabel"
-            :icon-src="tech.iconSrc"
-            :icon-size="tech.iconSize ?? 36"
-            :icon-width="tech.iconWidth ?? null"
-            :icon-height="tech.iconHeight ?? null"
-          />
-          </div>
-        </li>
-      </ul>
+            <!-- Строка с чипсами — flex-row -->
+            <div class="tech-stack__chips">
+              <TechChip
+                v-for="tech in category.technologies"
+                :key="tech.name"
+                :label="tech.name"
+                :sublabel="tech.sublabel"
+                :icon-src="tech.iconSrc"
+                :icon-size="tech.iconSize ?? 36"
+                :icon-width="tech.iconWidth ?? null"
+                :icon-height="tech.iconHeight ?? null"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <img src="/techstack-visual.png" alt="" class="tech-stack__visual" />
     </div>
   </section>
 </template>
@@ -88,31 +91,39 @@ const techStack = [
    TECH STACK SECTION — правая часть ExpertiseSection
    ========================================================================== */
 
+/* Секция: контент + круги справа в потоке, низ к нижней секции, отступ картинки от правого края */
 .tech-stack {
-  position: relative;
   width: 100%;
   background-color: #F5F5F5;
-  padding: var(--spacing-4xl) 0;
+  padding: var(--spacing-4xl) var(--container-padding) 0;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
 
+.tech-stack__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--container-max);
+}
+
 .tech-stack__visual {
-  position: absolute;
-  bottom: 0;
-  right: 37%;
   width: 338px;
   height: 338px;
   object-fit: contain;
+  display: block;
+  margin: 0;
+  margin-right: var(--spacing-xl);
 }
 
 .tech-stack__container {
   width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+  min-width: 0;
   padding-left: 3%;
+  padding-right: 0;
 }
 
 /* --- Подзаголовок --- */
@@ -161,20 +172,50 @@ const techStack = [
 }
 
 /* --- Адаптив --- */
+@media (max-width: 1440px) {
+    .tech-stack {
+    padding-bottom: 0;
+  }
+
+    .tech-stack__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .tech-stack__container {
+    padding-right: 0;
+  }
+
+  .tech-stack__visual {
+    justify-self: center;
+    margin-top: var(--spacing-2xl);
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 260px;
+    height: 260px;
+  }
+
+    .tech-stack__heading {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+    .tech-stack__category {
+    font-size: 21px;
+    line-height: 52px;
+  }
+}
+
 @media (max-width: 1024px) {
   .tech-stack__category {
-    font-size: 22px;
+    font-size: 18px;
+    line-height: 45px;
     flex: 0 0 120px;
   }
 
   .tech-stack__heading {
-    font-size: 24px;
-  }
-
-  .tech-stack__visual {
-    right: 20%;
-    width: 260px;
-    height: 260px;
+    font-size: 19px;
+    line-height: 24px;
   }
 }
 
@@ -187,22 +228,26 @@ const techStack = [
 
   .tech-stack__category {
     flex: none;
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 35px;
     line-height: 1.4;
   }
 
-  .tech-stack__visual {
-    display: none;
+  .tech-stack__heading {
+    font-size: 15px;
+    line-height: 19px;
   }
 }
 
 @media (max-width: 375px) {
-  .tech-stack__heading {
-    font-size: 20px;
-  }
 
   .tech-stack__category {
-    font-size: 16px;
+    font-size: 13px;
+  }
+
+  .tech-stack__heading {
+    font-size: 13px;
+    line-height: 14px;
   }
 }
 </style>
