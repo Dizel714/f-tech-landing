@@ -141,13 +141,11 @@ const solutions = [
 
 }
 
-/* --- Grid 2×2 --- */
+/* --- Grid 2×2: гибкие дорожки, без фиксированных 848px×2 (иначе горизонтальный скролл) --- */
 .solutions__grid {
   display: grid;
-  grid-template-columns: repeat(2, 848px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-xl);
-
-  /* ↓ Настрой gap между карточками по дизайну */
 }
 
 /* ==========================================================================
@@ -158,7 +156,10 @@ const solutions = [
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  width: 848px;
+  width: 100%;
+  min-width: 0;
+  max-width: 848px;
+  justify-self: center;
 
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
@@ -258,12 +259,14 @@ const solutions = [
 
 /* --- Адаптив --- */
 @media (max-width: 1440px) {
-  .solutions__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .solutions__heading {
+  font-size: 38px;
+  line-height: 38px;
   }
 
-  .solution-card {
-    width: 100%;
+  .solution-card__title {
+  font-size: 29px;
+  line-height: 22px;
   }
 
   .solution-card:nth-child(1),
@@ -272,55 +275,89 @@ const solutions = [
   .solution-card:nth-child(4) {
     height: auto;
   }
+
+  .solution-card__description {
+  font-size: 20px;
+  line-height: 22px;
+  }
+
+  .solution-card__advantage-text,
+  .solution-card__advantages-heading {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .solution-card__check-icon {
+  width: 24px;
+  height: 24px;
+}
 }
 
 @media (max-width: 1024px) {
   .solutions__heading {
-    font-size: 36px;
+  font-size: 28px;
+  line-height: 27px;
   }
 
-  .solution-card__title {
-    font-size: 28px;
-  }
-
-  .solution-card__description {
-    font-size: 20px;
-  }
-
-  .solution-card__advantage-text,
-  .solution-card__advantages-heading {
-    font-size: 20px;
-    line-height: 36px;
-  }
-}
-
-@media (max-width: 793px) {
   .solutions__grid {
     grid-template-columns: 1fr;
   }
 
-  .solutions__heading {
-    font-size: 28px;
-  }
 
   .solution-card__title {
-    font-size: 22px;
+  font-size: 24px;
+  line-height: 19px;
   }
 
   .solution-card__description {
-    font-size: 17px;
+  font-size: 17px;
+  line-height: 19px;
   }
 
   .solution-card__advantage-text,
   .solution-card__advantages-heading {
     font-size: 17px;
-    line-height: 30px;
+    line-height: 19px;
   }
+
+  .solution-card__check-icon {
+  width: 21px;
+  height: 21px;
+}
+}
+
+@media (max-width: 793px) {
+  .solutions__heading {
+  font-size: 22px;
+  line-height: 21px;
+  }
+
+  .solution-card__title {
+  font-size: 19px;
+  line-height: 15px;
+  }
+
+  .solution-card__description {
+  font-size: 13px;
+  line-height: 15px;
+  }
+
+  .solution-card__advantage-text,
+  .solution-card__advantages-heading {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+    .solution-card__check-icon {
+  width: 16px;
+  height: 16px;
+}
 }
 
 @media (max-width: 375px) {
   .solutions__heading {
-    font-size: 22px;
+  font-size: 12px;
+  line-height: 14px;
   }
 
   .solution-card {
@@ -328,12 +365,14 @@ const solutions = [
   }
 
   .solution-card__title {
-    font-size: 18px;
-    margin-bottom: var(--spacing-sm);
+  font-size: 18px;
+  line-height: 14px;
+  margin-bottom: var(--spacing-sm);
   }
 
   .solution-card__description {
-    font-size: 14px;
+  font-size: 12px;
+  line-height: 14px;
   }
 
   .solution-card__advantage-text,
@@ -345,6 +384,11 @@ const solutions = [
   .solution-card__advantage-item {
     gap: var(--spacing-md);
   }
+
+  .solution-card__check-icon {
+  width: 15px;
+  height: 15px;
+}
 }
 
 </style>
