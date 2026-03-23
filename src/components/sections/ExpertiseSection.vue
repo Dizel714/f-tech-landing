@@ -159,19 +159,57 @@ const directions = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
   .expertise__heading {
-    font-size: 36px;
+  font-size: 38px;
+  line-height: 38px;
+  }
+
+  .expertise__directions-title {
+    font-size: 22px;
+    line-height: 28px;
   }
 
   .expertise__directions-text {
-    font-size: 22px;
-    line-height: 56px;
+    font-size: 21px;
+    line-height: 53px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .expertise__body {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise__directions {
+    padding-top: var(--spacing-xl);
+  }
+  
+  .expertise__heading {
+  font-size: 28px;
+  line-height: 32px;
+  }
+
+  .expertise__directions-title {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .expertise__directions-text {
+    font-size: 18px;
+    line-height: 44px;
+  }
+
+  .expertise__image-area {
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--spacing-2xl);
   }
 
   .expertise__visual-img {
-    width: 600px;
-    height: 600px;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
   }
 }
 
@@ -181,17 +219,18 @@ const directions = [
   }
 
   .expertise__heading {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 22px;
+    line-height: 25px;
   }
 
   .expertise__directions-title {
-    font-size: 22px;
+    font-size: 15px;
+    line-height: 19px;
   }
 
   .expertise__direction-text {
-    font-size: 20px;
-    line-height: 52px;
+    font-size: 14px;
+    line-height: 34px;
   }
 
   .expertise__image-area {
@@ -199,26 +238,25 @@ const directions = [
   }
 
   .expertise__visual-img {
-    width: 100%;
-    height: auto;
     max-width: 500px;
   }
 }
 
 @media (max-width: 375px) {
   .expertise__heading {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 24px;
     margin-bottom: var(--spacing-xl);
   }
 
   .expertise__directions-title {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .expertise__direction-text {
-    font-size: 16px;
-    line-height: 40px;
+    font-size: 13px;
+    line-height: 33px;
   }
 
   .expertise__direction-item {
