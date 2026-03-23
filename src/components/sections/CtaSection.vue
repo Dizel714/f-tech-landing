@@ -47,21 +47,24 @@ function handleClick() {
   justify-content: center;
 }
 
-/* --- Контейнер --- */
+/* --- Контейнер: на всю ширину экрана, боковые поля как у сайта --- */
 .cta__container {
-  max-width: var(--container-max);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 0 var(--container-padding);
+  box-sizing: border-box;
 }
 
-/* --- Карточка: большой прямоугольник с центрированным контентом --- */
+/* --- Карточка: почти на всю ширину вьюпорта (минус padding контейнера) --- */
 .cta__card {
   display: flex;
   align-items: stretch;
   justify-content: center;
   padding: 115px 0 67px;
+  box-sizing: border-box;
 
-  width: 1600px;
+  width: 100%;
   height: 596px;
   border-radius: 30px;
   background-image: url('/cta-bg.png');
@@ -69,15 +72,18 @@ function handleClick() {
   background-position: center;
 }
 
-/* --- Контент карточки — центрирован по вертикали и горизонтали --- */
+/* --- Контент карточки — колонка с фиксированным зазором текст ↔ кнопка на всех ширинах --- */
 .cta__content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--spacing-3xl);
   text-align: center;
-  width: 874px;
-  }
+  width: 100%;
+  max-width: 874px;
+  box-sizing: border-box;
+}
 
 /* --- Группа заголовок + подзаголовок --- */
 .cta__text {
@@ -148,6 +154,16 @@ color: #000000;
     padding: 80px var(--spacing-3xl);
   }
 
+  .cta__title {
+    font-size: 23px;
+    line-height: 22px;
+  }
+
+  .cta__subtitle {
+    font-size: 21px;
+    line-height: 26px;
+  }
+
   .cta__content {
     width: 100%;
     max-width: 874px;
@@ -161,12 +177,13 @@ color: #000000;
   }
 
   .cta__title {
-    font-size: 24px;
+    font-size: 19px;
+    line-height: 19px;
   }
 
   .cta__subtitle {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .cta__btn {
@@ -183,6 +200,10 @@ color: #000000;
   .cta__text {
     gap: 40px;
   }
+
+  .cta__content {
+    gap: var(--spacing-2xl);
+  }
 }
 
 @media (max-width: 793px) {
@@ -192,12 +213,13 @@ color: #000000;
   }
 
   .cta__title {
-    font-size: 20px;
+    font-size: 15px;
+    line-height: 15px;
   }
 
   .cta__subtitle {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .cta__btn {
@@ -216,6 +238,11 @@ color: #000000;
   .cta__text {
     gap: 28px;
   }
+
+  .cta__content {
+    gap: var(--spacing-xl);
+  }
+
 }
 
 @media (max-width: 375px) {
@@ -225,11 +252,13 @@ color: #000000;
   }
 
   .cta__title {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 14px;
   }
 
   .cta__subtitle {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 17px;
   }
 
   .cta__btn {
@@ -243,6 +272,11 @@ color: #000000;
     height: 38px;
     margin-left: 8px;
   }
+
+  .cta__content {
+    gap: var(--spacing-lg);
+  }
+
 }
 
 </style>
