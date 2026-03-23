@@ -52,7 +52,7 @@ function handleClick() {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--spacing-3xl);
   box-sizing: border-box;
 }
 
@@ -128,8 +128,8 @@ color: #000000;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 25.7143px;
-  line-height: 1;
+  font-size: 25px;
+  line-height: 62;
   color: #FFFFFF;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
@@ -168,6 +168,20 @@ color: #000000;
     width: 100%;
     max-width: 874px;
   }
+
+  .cta__btn {
+    width: min(100%, 408px);
+    height: 80px;
+    padding: 0 var(--spacing-xl);
+    border-radius: 44px;
+    font-size: 20px;
+    line-height: 46px;
+  }
+
+    .cta__btn-icon {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -187,14 +201,17 @@ color: #000000;
   }
 
   .cta__btn {
-    width: 360px;
-    height: 72px;
-    font-size: 20px;
+    width: min(100%, 348px);
+    height: 68px;
+    padding: 0 var(--spacing-lg);
+    border-radius: 38px;
+    font-size: 16px;
+    line-height: 40px;
   }
 
   .cta__btn-icon {
-    width: 58px;
-    height: 58px;
+    width: 48px;
+    height: 48px;
   }
 
   .cta__text {
@@ -223,15 +240,17 @@ color: #000000;
   }
 
   .cta__btn {
-    width: 280px;
-    height: 60px;
-    font-size: 16px;
-    padding: 0 var(--spacing-lg);
+    width: min(100%, 280px);
+    height: 54px;
+    padding: 0 var(--spacing-md);
+    border-radius: 30px;
+    font-size: 13px;
+    line-height: 31px;
   }
 
   .cta__btn-icon {
-    width: 46px;
-    height: 46px;
+    width: 37px;
+    height: 37px;
     margin-left: 12px;
   }
 
@@ -262,14 +281,16 @@ color: #000000;
   }
 
   .cta__btn {
-    width: 100%;
-    height: 54px;
-    font-size: 14px;
+    height: 50px;
+    padding: 0 var(--spacing-md);
+    border-radius: 26px;
+    font-size: 12px;
+    line-height: 29px;
   }
 
   .cta__btn-icon {
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
     margin-left: 8px;
   }
 
