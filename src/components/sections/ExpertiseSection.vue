@@ -187,7 +187,7 @@ const directions = [
 }
 
 @media (max-width: 1024px) {
-    .expertise__container {
+  .expertise__container {
     padding: 0 var(--container-padding);
   }
 
@@ -197,15 +197,24 @@ const directions = [
 
   .expertise__directions {
     padding-top: var(--spacing-xl);
-    max-width: none;
+    padding-right: 0;
+    justify-self: center;
+    width: fit-content;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .expertise__directions-list {
+    text-align: left;
   }
   
   .expertise__heading {
-  font-size: 28px;
-  line-height: 32px;
+    font-size: 28px;
+    line-height: 32px;
   }
 
   .expertise__directions-title {
+    text-align: left;
     font-size: 19px;
     line-height: 24px;
   }

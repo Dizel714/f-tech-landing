@@ -146,12 +146,14 @@ function handleBackdropClick(event) {
   backdrop-filter: blur(2px);
 }
 
-/* --- Контейнер модального окна --- */
+/* --- Контейнер модального окна (размеры по макету Figma) --- */
 .modal {
   position: relative;
+  /* 1920: 908×688 */
   width: 908px;
   height: 688px;
-  max-width: 90vw;
+  max-width: min(908px, calc(100vw - 32px));
+  max-height: min(688px, calc(100vh - 32px));
   overflow-y: auto;
 
   border-radius: 12px;
@@ -163,6 +165,17 @@ function handleBackdropClick(event) {
   box-shadow: 0px 0px 10px 4px #A3C3F8;
 
   margin: var(--spacing-md);
+}
+
+@media (max-width: 1440px) {
+  .modal {
+    /* 1440: 681×516 */
+    width: 681px;
+    height: 516px;
+    max-width: min(681px, calc(100vw - 32px));
+    max-height: min(516px, calc(100vh - 32px));
+    padding: var(--spacing-xl);
+  }
 }
 
 /* --- Кнопка закрытия --- */
@@ -273,7 +286,8 @@ function handleBackdropClick(event) {
 }
 
 .modal__input {
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: 5px;
 
@@ -314,7 +328,7 @@ function handleBackdropClick(event) {
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 17.9134px;
+  font-size: 18px;
   line-height: 43px;
   color: #FFFFFF;
 
@@ -361,93 +375,212 @@ function handleBackdropClick(event) {
   color: #306AF2;
 }
 
-/* --- Адаптив --- */
-@media (max-width: 1024px) {
-  .modal {
-    width: 90vw;
-    height: auto;
-    min-height: 560px;
+/* --- Адаптив (размеры окна по макету) --- */
+@media (max-width: 1440px) {
+  .modal__info-title {
+    font-size: 22px;
+    line-height: 22px;
   }
 
-  .modal__input {
-    width: 100%;
+  .modal__info-text {
+    font-size: 15px;
+    line-height: 23px;
   }
 
-  .modal__submit {
-    width: 280px;
+    .modal__label {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+    .modal__submit {
+    width: 243px;
+    height: 47px;
+    font-size: 13px;
+    line-height: 32px;
+  }
+
+  .modal__policy-text,
+  .modal__policy-link {
+    font-size: 15px;
+    line-height: 23px;
   }
 }
 
-@media (max-width: 793px) {
+@media (max-width: 1024px) {
   .modal {
-    width: 95vw;
-    height: auto;
-    padding: var(--spacing-xl);
+    /* 1024: 484×367 */
+    width: 484px;
+    height: 367px;
+    max-width: min(484px, calc(100vw - 32px));
+    max-height: min(367px, calc(100vh - 32px));
+    padding: var(--spacing-md);
   }
 
   .modal__body {
-    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 
   .modal__info {
-    padding-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
   }
 
   .modal__info-title {
-    font-size: 22px;
+    font-size: 16px;
+    line-height: 16px;
   }
 
-  .modal__form {
-    padding-top: var(--spacing-md);
+  .modal__info-text {
+    font-size: 11px;
+    line-height: 17px;
+  }
+
+  .modal__label {
+    font-size: 10px;
+    line-height: 19px;
+  }
+
+  .modal__input {
+    max-width: none;
+    font-size: 15px;
+    line-height: 1.3;
   }
 
   .modal__form-footer {
     position: static;
     transform: none;
-    margin-top: var(--spacing-xl);
-  }
-
-  .modal__input {
-    width: 100%;
+    margin-top: var(--spacing-sm);
   }
 
   .modal__submit {
-    width: 100%;
-  }
-
-  .modal__label {
-    font-size: 15px;
+    width: 173px;
+    height: 33px;
+    /* 1024 */
+    font-size: 10px;
+    line-height: 23px;
   }
 
   .modal__policy-text,
   .modal__policy-link {
-    font-size: 14px;
+    font-size: 11px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 793px) {
+  .modal {
+    /* 793: 378×286 */
+    width: 378px;
+    height: 286px;
+    max-width: min(378px, calc(100vw - 32px));
+    max-height: min(286px, calc(100vh - 32px));
+    padding: var(--spacing-sm);
+  }
+
+  .modal__body {
+    gap: var(--spacing-sm);
+  }
+
+  .modal__info {
+    padding-top: var(--spacing-sm);
+  }
+
+  .modal__info-title {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .modal__info-text {
+    font-size: 12px;
+    line-height: 13px;
+  }
+
+  .modal__form {
+    padding-top: 0;
+    gap: var(--spacing-sm);
+  }
+
+  .modal__fields {
+    gap: var(--spacing-sm);
+  }
+
+  .modal__form-footer {
+    position: static;
+    transform: none;
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-xs);
+  }
+
+  .modal__label {
+    font-size: 8px;
+    line-height: 15px;
+  }
+
+  .modal__input {
+    font-size: 13px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .modal__submit {
+    width: 135px;
+    height: 26px;
+    font-size: 7px;
+    line-height: 18px;
+  }
+
+  .modal__policy-text,
+  .modal__policy-link {
+    font-size: 8px;
+    line-height: 13px;
   }
 }
 
 @media (max-width: 375px) {
   .modal {
-    padding: var(--spacing-lg);
-    width: 100vw;
-    border-radius: 0;
+    /* 375: 241×326 */
+    width: 241px;
+    height: 326px;
+    max-width: min(241px, calc(100vw - 24px));
+    max-height: min(326px, calc(100vh - 24px));
+    padding: var(--spacing-sm);
+    border-radius: 10px;
+  }
+
+  .modal__body {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
   }
 
   .modal__info-title {
-    font-size: 18px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .modal__info-text {
+    font-size: 12px;
+    line-height: 12px;
   }
 
   .modal__label {
-    font-size: 13px;
+    font-size: 7px;
+    line-height: 14px;
   }
 
   .modal__input {
-    font-size: 14px;
+    font-size: 12px;
     padding: var(--spacing-xs) var(--spacing-sm);
   }
 
   .modal__submit {
-    height: 50px;
-    font-size: 15px;
+    width: 128px;
+    height: 25px;
+    font-size: 7px;
+    line-height: 17px;
+  }
+
+  .modal__policy-text,
+  .modal__policy-link {
+    font-size: 8px;
+    line-height: 12px;
   }
 }
 </style>

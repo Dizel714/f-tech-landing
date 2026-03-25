@@ -121,6 +121,18 @@ const solutions = [
   justify-content: center;
 }
 
+/* Одна колонка: отдельный фон (файл: public/solutions-bg-mobile.png) */
+@media (max-width: 1024px) {
+  .solutions {
+    background-color: var(--bg-section-alt);
+    background-image: url('/solutions-bg-mobile.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
+
+
 /* --- Контейнер --- */
 .solutions__container {
   max-width: var(--container-max);

@@ -95,7 +95,7 @@ const techStack = [
 .tech-stack {
   width: 100%;
   background-color: #F5F5F5;
-  padding: var(--spacing-4xl) var(--container-padding) 0;
+  padding: var(--spacing-4xl) var(--spacing-4xl) 0;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -124,6 +124,13 @@ const techStack = [
   min-width: 0;
   padding-left: 3%;
   padding-right: 0;
+}
+
+/* Больше воздуха под чипсами, пока картинка справа; низ колонок совпадает — картинка прижата к нижней границе секции */
+@media (min-width: 1025px) {
+  .tech-stack__container {
+    padding-bottom: var(--spacing-4xl);
+  }
 }
 
 /* --- Подзаголовок --- */
@@ -177,22 +184,14 @@ const techStack = [
     padding-bottom: 0;
   }
 
-    .tech-stack__inner {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
   .tech-stack__container {
     padding-right: 0;
   }
 
+  /* Двухколоночный layout сохраняем: круги справа от текста до 1024 */
   .tech-stack__visual {
-    justify-self: center;
-    margin-top: var(--spacing-2xl);
-    margin-right: 0;
-    margin-bottom: 0;
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
   }
 
     .tech-stack__heading {
@@ -207,6 +206,24 @@ const techStack = [
 }
 
 @media (max-width: 1024px) {
+    .tech-stack__container {
+    padding-bottom: 0;
+  }
+
+    .tech-stack__inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .tech-stack__visual {
+    justify-self: center;
+    margin-top: var(--spacing-2xl);
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 260px;
+    height: 260px;
+  }
+
   .tech-stack__category {
     font-size: 18px;
     line-height: 45px;

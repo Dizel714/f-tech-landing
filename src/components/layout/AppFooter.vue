@@ -43,20 +43,24 @@ const docLinks = [
 
         <!-- Колонка 1: Логотип + юридическая информация -->
         <div class="footer__col footer__col--brand">
-          <a href="/" class="footer__logo" aria-label="На главную">
-            <img src="/logo-footer.svg" alt="Ф Тех" class="footer__logo-img" />
-          </a>
+          <div class="footer__brand-logo">
+            <a href="/" class="footer__logo" aria-label="На главную">
+              <img src="/logo-footer.svg" alt="Ф Тех" class="footer__logo-img" />
+            </a>
+          </div>
 
-          <address class="footer__legal">
-            <p class="footer__legal-name">{{ legalInfo.name }}</p>
-            <p class="footer__legal-row">ИНН: {{ legalInfo.inn }}</p>
-            <p class="footer__legal-row">КПП: {{ legalInfo.kpp }}</p>
-            <p class="footer__legal-row">{{ legalInfo.address }}</p>
-          </address>
+          <div class="footer__brand-legal">
+            <address class="footer__legal">
+              <p class="footer__legal-name">{{ legalInfo.name }}</p>
+              <p class="footer__legal-row">ИНН: {{ legalInfo.inn }}</p>
+              <p class="footer__legal-row">КПП: {{ legalInfo.kpp }}</p>
+              <p class="footer__legal-row">{{ legalInfo.address }}</p>
+            </address>
 
-          <div class="footer__address-block">
-            <p class="footer__legal-name">Юр.адрес:</p>
-            <p class="footer__legal-row">107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5</p>
+            <div class="footer__address-block">
+              <p class="footer__legal-name">Юр.адрес:</p>
+              <p class="footer__legal-row">107031, г. Москва, <br> вн.тер.г. МО Мещанский, <br> ул. Кузнецкий Мост, 21/5</p>
+            </div>
           </div>
         </div>
 
@@ -178,6 +182,12 @@ const docLinks = [
   width: 285px;
   height: 61px;
   object-fit: contain;
+}
+
+.footer__brand-legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 .footer__legal {
@@ -385,6 +395,11 @@ const docLinks = [
     width: 213px;
     height: 45px;
   }
+
+  .footer__link-icon-img{
+    width: 32px;
+    height: 32px;
+  }
   
 }
 
@@ -462,11 +477,16 @@ const docLinks = [
   .footer__info-block:nth-child(3) .footer__info-text {
     font-size: 17px;
   }
+
+    .footer__link-icon-img{
+    width: 27px;
+    height: 27px;
+  }
 }
 
 @media (max-width: 793px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
     gap: 0 var(--spacing-md);
     padding: 0 var(--spacing-md);
@@ -498,7 +518,7 @@ const docLinks = [
 
   .footer__info-block:first-child .footer__info-text {
     font-size: 15px;
-    line-height: 20px;
+    line-height: 18px;
   }
 
   .footer__info-block:nth-child(2) .footer__info-text,
@@ -508,6 +528,7 @@ const docLinks = [
 
   .footer__info-block:nth-child(3) .footer__info-text {
     font-size: 13px;
+    line-height: 24px;
   }
 
   .footer__link {
@@ -519,12 +540,102 @@ const docLinks = [
     width: 142px;
     height: 30px;
   }
+
+    .footer__link-icon-img{
+    width: 22px;
+    height: 22px;
+  }
 }
+
+/* Узкий экран: логотип → юр. блок → текстовые блоки → ссылки колонкой */
+@media (max-width: 679px) {
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'logo'
+      'legal'
+      'info'
+      'links';
+    grid-template-rows: auto;
+    gap: var(--spacing-xl);
+    row-gap: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+  }
+
+  .footer__col--brand {
+    display: contents;
+    padding-left: 0;
+  }
+
+  .footer__brand-logo {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer__brand-legal {
+    grid-area: legal;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .footer__brand-legal .footer__legal {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .footer__brand-legal .footer__address-block {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .footer__col--info {
+    grid-area: info;
+    width: 100%;
+    gap: var(--spacing-md);
+  }
+
+  .footer__col--links {
+    grid-area: links;
+    grid-column: auto;
+    padding: 0;
+    display: block;
+    justify-content: flex-start;
+  }
+
+  .footer__links-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: var(--spacing-xs);
+  }
+
+    .footer__info-block:first-child .footer__info-text {
+    line-height: 16px;
+  }
+
+  .footer__info-block:nth-child(2) .footer__info-text,
+  .footer__info-block:nth-child(3) .footer__info-title {
+    line-height: 20px;
+  }
+
+  .footer__info-block:nth-child(3) .footer__info-text {
+    line-height: 20px;
+  }
+}
+
 
 @media (max-width: 375px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0 var(--spacing-sm);
+    gap: var(--spacing-md);
+    row-gap: var(--spacing-md);
     padding: 0 var(--spacing-sm);
   }
 
@@ -560,7 +671,7 @@ const docLinks = [
   }
 
   .footer__links-list {
-    gap: var(--spacing-xl);
+    gap: var(--spacing-xs);
   }
 
   .footer__info-block:nth-child(2) .footer__info-text,
@@ -570,6 +681,11 @@ const docLinks = [
 
   .footer__info-block:nth-child(3) .footer__info-text {
     font-size: 9px;
+  }
+
+    .footer__link-icon-img{
+    width: 20px;
+    height: 20px;
   }
 }
 </style>
