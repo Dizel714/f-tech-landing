@@ -73,7 +73,7 @@ const directions = [
 .expertise__container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--container-padding) 0 120px;
 }
 
 /* --- Главный заголовок --- */
@@ -179,15 +179,25 @@ const directions = [
     width: 19px;
     height: 13px;
   }
+
+  .expertise__visual-img {
+  width: 464px;
+  height: 535px;
+  }
 }
 
 @media (max-width: 1024px) {
+    .expertise__container {
+    padding: 0 var(--container-padding);
+  }
+
   .expertise__body {
     grid-template-columns: 1fr;
   }
 
   .expertise__directions {
     padding-top: var(--spacing-xl);
+    max-width: none;
   }
   
   .expertise__heading {

@@ -52,7 +52,7 @@ function handleClick() {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 var(--spacing-3xl);
+  padding: 0 var(--spacing-xl);
   box-sizing: border-box;
 }
 

@@ -164,9 +164,13 @@ const solutions = [
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
 
-  /* ↓ Задай background-color, border и box-shadow карточки по дизайну */
+
   background-color: var(--bg-card);
-  box-shadow: var(--shadow-md);
+  /* Мягкая голубая оконтовка (как в Figma): размытое свечение по периметру */
+  box-shadow:
+    0 0 12px rgba(130, 175, 255, 0.5),
+    0 0 26px rgba(154, 194, 255, 0.32),
+    0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* Верхний ряд (карточки 1 и 2) */

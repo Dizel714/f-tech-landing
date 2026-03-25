@@ -24,6 +24,7 @@ const features = [
           v-for="item in features"
           :key="item.id"
           class="features__item"
+          :class="`features__item--id-${item.id}`"
         >
           <!-- Иконка -->
           <span class="features__item-icon" aria-hidden="true">
@@ -178,16 +179,25 @@ const features = [
 
   .features__chain-step {
     font-size: 22px;
-    line-height: 22px;
+    line-height: 1.2;
   }
 
   .features__chain-arrow {
-    font-size: 26px;
+    font-size: 22px;
+    line-height: 1.2;
   }
 
-    .features__container {
-    padding-left: var(--spacing-2xl);
-    padding-right: var(--spacing-2xl);
+  .features__item-text--chain {
+    gap: 4px;
+  }
+
+  .features__chain {
+    row-gap: 4px;
+  }
+
+  .features__container {
+    padding-left: var(--spacing-4xl);
+    padding-right: var(--spacing-4xl);
   }
 
   .features__grid {
@@ -195,6 +205,27 @@ const features = [
     justify-items: stretch;
     width: 100%;
     gap: var(--spacing-xl);
+  }
+
+    /* В столбик: 1 → 3 → 5 → 2 → 4 */
+  .features__item--id-1 {
+    order: 1;
+  }
+
+  .features__item--id-2 {
+    order: 4;
+  }
+
+  .features__item--id-3 {
+    order: 2;
+  }
+
+  .features__item--id-4 {
+    order: 5;
+  }
+
+  .features__item--id-5 {
+    order: 3;
   }
 
   .features__item {
@@ -219,6 +250,10 @@ const features = [
 }
 
 @media (max-width: 793px) {
+  .features__container {
+    padding-left: var(--spacing-3xl);
+    padding-right: var(--spacing-3xl);
+  }
 
   .features__item-text {
   font-size: 17px;
@@ -231,7 +266,17 @@ const features = [
   }
 
   .features__chain-arrow {
-    font-size: 20px;
+      font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .features__item-text--chain {
+    gap: 2px;
+  }
+
+  .features__chain {
+    row-gap: 2px;
+    column-gap: var(--spacing-xs);
   }
 
   .features__item-icon img {
@@ -252,11 +297,21 @@ const features = [
   }
   .features__chain-step {
     font-size: 16px;
-    line-height: 17px;
+    line-height: 1.2;
   }
 
   .features__chain-arrow {
-    font-size: 16px;
+      font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .features__item-text--chain {
+    gap: 2px;
+  }
+
+  .features__chain {
+    row-gap: 2px;
+    column-gap: 6px;
   }
 
   .features__item {
