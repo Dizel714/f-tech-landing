@@ -223,6 +223,19 @@
   }
 }
 
+/* Планшет 794–1024: без «провала» внизу экрана — контент сразу под шапкой */
+@media (max-width: 1024px) and (min-width: 794px) {
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .hero__container {
+    padding-top: var(--spacing-lg);
+  }
+}
+
 @media (max-width: 793px) {
   .hero {
     align-items: flex-end;
