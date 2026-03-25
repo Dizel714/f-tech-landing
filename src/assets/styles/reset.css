@@ -13,17 +13,16 @@
 
 /* --- Нормализация HTML и Body --- */
 html {
-  font-size: 16px;         /* базовый размер — меняй здесь для масштабирования */
-  scroll-behavior: smooth; /* плавный скролл для якорей */
+  font-size: 16px;
+  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* ↓ Сюда пропиши font-family, color и background-color проекта */
 }
 
 /* --- Изображения --- */

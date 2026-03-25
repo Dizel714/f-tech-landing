@@ -57,7 +57,7 @@
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
-  padding: var(--spacing-3xl) 0 var(--spacing-3xl) var(--container-padding);
+  padding: var(--spacing-3xl) 0 0 var(--container-padding);
 }
 
 /* --- Текстовый блок --- */
@@ -81,6 +81,7 @@
   font-weight: 700;
   line-height: 67px;
   color: #000000;
+  text-align: left;
 }
 
 .hero__description {
@@ -90,6 +91,7 @@
   line-height: 50px;
   letter-spacing: 0%;
   color: var(--color-text-1);
+  text-align: left;
   }
 
 .hero__description strong {
@@ -146,9 +148,10 @@
   flex: 0 1 875px; /* flex-shrink: 1 — картинка сжимается, не расширяя контейнер */
   min-width: 0;
   max-width: 875px;
-  margin-bottom: calc(-1 * var(--spacing-3xl));
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: 0;
+  align-self: flex-end;
 }
 
 .hero__visual-img {
@@ -185,7 +188,7 @@
 
 @media (max-width: 1024px) {
   .hero__container {
-    padding: var(--spacing-2xl) 0 var(--spacing-2xl) var(--container-padding);
+    padding: var(--spacing-2xl) 0 0 var(--container-padding);
   }
 
   .hero__title {
@@ -213,22 +216,21 @@
   .hero__visual {
     flex: 0 1 480px;
     max-width: 480px;
-    /* padding-bottom контейнера = --spacing-2xl (48px), подгоняем отрицательный отступ */
-    margin-bottom: calc(-1 * var(--spacing-2xl));
+    margin-bottom: 0;
   }
 }
 
 @media (max-width: 793px) {
   .hero {
-    align-items: center; /* блок hero по центру по горизонтали */
+    align-items: flex-end;
   }
 
   .hero__container {
     flex-direction: column;
     align-items: center; /* колонка: заголовок → текст → кнопка → картинка по центру */
-    justify-content: flex-start;
+    justify-content: flex-end;
     /* Больше отступов от краёв — уже колонка с текстом */
-    padding: var(--spacing-2xl) 45px;
+    padding: var(--spacing-2xl) 0 0 45px;
   }
 
   .hero__content {
@@ -238,6 +240,7 @@
     align-items: center;
     text-align: center;
     justify-content: flex-start;
+    padding-right: var(--spacing-3xl);
   }
 
   .hero__title {
@@ -261,17 +264,16 @@
     flex: none;
     width: 100%;
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
+    margin: 0;
+    display: block;
+    line-height: 0;
+    font-size: 0;
   }
 
   .hero__visual-img {
-    max-width: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
+    display: block;
   }
 
   .hero__btn-icon {
@@ -282,6 +284,13 @@
 
 
 @media (max-width: 375px) {
+  .hero__container {
+    padding: var(--spacing-xl) 0 0 var(--spacing-md);
+  }
+    .hero__content {
+    padding-right: var(--spacing-xl);
+  }
+  
   .hero__title {
     font-size: 24px;
     line-height: 32px;

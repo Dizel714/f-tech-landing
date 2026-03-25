@@ -95,6 +95,7 @@ function closeModal() {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: clip;
 
   /* ↓ Задай font-family и base color по дизайну */
   font-family: var(--font-sans);
@@ -103,7 +104,7 @@ function closeModal() {
 }
 
 .app__main {
-  flex: 1;
+  flex: 0 0 auto;
 }
 
 .sections-joint {

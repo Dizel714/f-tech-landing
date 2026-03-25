@@ -56,7 +56,7 @@ const docLinks = [
 
           <div class="footer__address-block">
             <p class="footer__legal-name">Юр.адрес:</p>
-            <p class="footer__legal-row">107031, г. Москва, <br> вн.тер.г. МО Мещанский, <br> ул. Кузнецкий Мост, 21/5</p>
+            <p class="footer__legal-row">107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5</p>
           </div>
         </div>
 
@@ -133,6 +133,7 @@ const docLinks = [
   width: 100%;
   background-color: #F5F5F5;
   padding: var(--spacing-3xl) 0 0;
+  margin-bottom: 0;
   color: #306AF2;
   display: flex;
   flex-direction: column;
@@ -285,7 +286,7 @@ const docLinks = [
 
 /* --- Колонка 3: Ссылки --- */
 .footer__col--links {
-  padding-left: 120px;
+  padding-left: var(--spacing-xl);
 }
 
 .footer__links-list {
@@ -354,29 +355,48 @@ const docLinks = [
 }
 
 /* --- Адаптив --- */
-@media (max-width: 1024px) {
-  .footer__col--brand {
-    padding-left: 40px;
-  }
-
-  .footer__col--links {
-    padding-left: 40px;
-  }
-
-  .footer__col--info {
-    width: 100%;
-  }
-
-  .footer__info-block:first-child .footer__info-text {
+@media (max-width: 1440px) {
+.footer__info-block:first-child .footer__info-text {
     font-size: 22px;
-    line-height: 32px;
+    line-height: 30px;
   }
+
+  .footer__info-block:nth-child(2) .footer__info-text,
+  .footer__info-block:nth-child(3) .footer__info-title {
+    font-size: 15px;
+  }
+
+  .footer__info-block:nth-child(3) .footer__info-text {
+    font-size: 20px;
+  }
+
+  .footer__legal-name,
+  .footer__legal-row {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+    .footer__link {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+    .footer__logo-img {
+    width: 213px;
+    height: 45px;
+  }
+  
 }
 
-@media (max-width: 793px) {
+@media (max-width: 1439px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
+    padding: 0 var(--spacing-2xl);
+  }
+
+  .footer__col--brand {
+    padding-left: 0;
   }
 
   .footer__divider {
@@ -385,36 +405,127 @@ const docLinks = [
 
   .footer__col--links {
     grid-column: 1 / -1;
-    padding-left: 16px;
+    padding: var(--spacing-2xl) 0 0;
+    display: flex;
+    justify-content: center;
   }
 
-  .footer__col--brand {
-    padding-left: 16px;
+  .footer__col--info {
+    width: 100%;
+  }
+
+  .footer__links-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-2xl) var(--spacing-3xl);
+  }
+}
+
+
+@media (max-width: 1024px) {
+
+  .footer__col--links {
+    padding-left: 0;
+  }
+
+  .footer__col--info {
+    width: 100%;
+  }
+
+  .footer__info-block:first-child .footer__info-text {
+    font-size: 19px;
+    line-height: 26px;
   }
 
   .footer__legal-name,
   .footer__legal-row {
-    font-size: 16px;
+    font-size: 13px;
+    line-height: 20px;
   }
 
-  .footer__info-block:first-child .footer__info-text {
-    font-size: 18px;
-    line-height: 26px;
+    .footer__link {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+    .footer__logo-img {
+    width: 182px;
+    height: 39px;
   }
 
   .footer__info-block:nth-child(2) .footer__info-text,
   .footer__info-block:nth-child(3) .footer__info-title {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .footer__info-block:nth-child(3) .footer__info-text {
-    font-size: 20px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 793px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 var(--spacing-md);
+    padding: 0 var(--spacing-md);
+  }
+
+  .footer__divider {
+    display: none;
+  }
+
+  .footer__col--links {
+    grid-column: 1 / -1;
+    padding-left: 0;
+  }
+
+  .footer__col--brand {
+    padding-left: 0;
+  }
+
+  .footer__address-block {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer__legal-name,
+  .footer__legal-row {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .footer__info-block:first-child .footer__info-text {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .footer__info-block:nth-child(2) .footer__info-text,
+  .footer__info-block:nth-child(3) .footer__info-title {
+    font-size: 10px;
+  }
+
+  .footer__info-block:nth-child(3) .footer__info-text {
+    font-size: 13px;
+  }
+
+  .footer__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .footer__logo-img {
+    width: 142px;
+    height: 30px;
   }
 }
 
 @media (max-width: 375px) {
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
   }
 
   .footer__col--brand,
@@ -422,27 +533,43 @@ const docLinks = [
     padding-left: 0;
   }
 
+  .footer__address-block {
+    width: 100%;
+    height: auto;
+  }
+
   .footer__logo-img {
-    width: 200px;
-    height: 44px;
+    width: 134px;
+    height: 29px;
   }
 
   .footer__legal-name,
   .footer__legal-row {
-    font-size: 14px;
+    font-size: 10px;
+    line-height: 15px;
   }
 
   .footer__info-block:first-child .footer__info-text {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 19px;
   }
 
   .footer__link {
-    font-size: 16px;
+    font-size: 10px;
+    line-height: 15px;
   }
 
   .footer__links-list {
     gap: var(--spacing-xl);
+  }
+
+  .footer__info-block:nth-child(2) .footer__info-text,
+  .footer__info-block:nth-child(3) .footer__info-title {
+    font-size: 9px;
+  }
+
+  .footer__info-block:nth-child(3) .footer__info-text {
+    font-size: 9px;
   }
 }
 </style>
