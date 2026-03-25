@@ -122,14 +122,14 @@ color: #000000;
   justify-content: center;
   width: 467px;
   height: 90px;
-  padding: 0 var(--spacing-2xl);
+  padding: 0 var(--spacing-xl);
   border-radius: 53.8658px;
   background: #306AF2;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
-  line-height: 62;
+  line-height: 62px;
   color: #FFFFFF;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
