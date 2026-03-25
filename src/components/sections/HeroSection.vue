@@ -107,6 +107,9 @@
   gap: 12px;
   white-space: nowrap;
 
+    /* зазор до следующего блока (фичи / картинка в колонке); у .hero__visual отступа нет */
+  margin-bottom: var(--spacing-3xl);
+
   width: 460px;
   height: 90px;
   padding: 0 10px 0 24px;

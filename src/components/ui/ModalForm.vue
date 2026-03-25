@@ -112,7 +112,11 @@ function handleBackdropClick(event) {
             <div class="modal__policy">
               <span class="modal__policy-text">
                 Нажимая кнопку «Отправить», Вы соглашаетесь с
-                <a href="/privacy" class="modal__policy-link" target="_blank">
+                                <a
+                  href="/privacy-policy.docx"
+                  class="modal__policy-link"
+                  download="Политика в области ПНд.docx"
+                >
                   политикой обработки персональных данных
                 </a>
               </span>
@@ -404,6 +408,16 @@ function handleBackdropClick(event) {
     font-size: 15px;
     line-height: 23px;
   }
+
+  /* 1440: поля 359×37 */
+  .modal__input {
+    width: 359px;
+    max-width: 100%;
+    height: 37px;
+    padding: 0 var(--spacing-sm);
+    font-size: 15px;
+    line-height: 37px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -439,16 +453,34 @@ function handleBackdropClick(event) {
     line-height: 19px;
   }
 
+ /* 1024: поля 255×26 */
   .modal__input {
-    max-width: none;
+    width: 255px;
+    max-width: 100%;
+    height: 26px;
+    padding: 0 8px;
     font-size: 15px;
-    line-height: 1.3;
+    line-height: 26px;
   }
 
+  /* футер остаётся position:absolute от .modal — кнопка по центру окна, не колонки формы */
   .modal__form-footer {
-    position: static;
+    left: var(--spacing-md);
+    right: var(--spacing-md);
     transform: none;
-    margin-top: var(--spacing-sm);
+    bottom: var(--spacing-md);
+    gap: var(--spacing-xs);
+    width: auto;
+    max-width: none;
+    /* блок текста под кнопкой — на всю ширину между боковыми padding модалки */
+  }
+
+  .modal__policy {
+    padding: 0 var(--spacing-2xl);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
   }
 
   .modal__submit {
@@ -463,6 +495,7 @@ function handleBackdropClick(event) {
   .modal__policy-link {
     font-size: 11px;
     line-height: 17px;
+    text-align: center;
   }
 }
 
@@ -504,9 +537,7 @@ function handleBackdropClick(event) {
   }
 
   .modal__form-footer {
-    position: static;
-    transform: none;
-    margin-top: var(--spacing-sm);
+    bottom: var(--spacing-sm);
     gap: var(--spacing-xs);
   }
 
@@ -515,9 +546,14 @@ function handleBackdropClick(event) {
     line-height: 15px;
   }
 
+  /* 793: поля 200×21 */
   .modal__input {
+    width: 200px;
+    max-width: 100%;
+    height: 21px;
+    padding: 0 6px;
     font-size: 13px;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    line-height: 21px;
   }
 
   .modal__submit {
@@ -565,9 +601,36 @@ function handleBackdropClick(event) {
     line-height: 14px;
   }
 
+  /* кнопка и политика — в потоке под полями, без наложения */
+  .modal__form-footer {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-xs);
+  }
+
+  .modal__form {
+    gap: var(--spacing-sm);
+    min-height: 0;
+  }
+
+  .modal__fields {
+    flex: 0 0 auto;
+  }
+
+  /* 375: поля 188×20 */
   .modal__input {
+    width: 188px;
+    max-width: 100%;
+    height: 20px;
+    padding: 0 6px;
     font-size: 12px;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    line-height: 20px;
   }
 
   .modal__submit {
