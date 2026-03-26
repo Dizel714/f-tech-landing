@@ -283,6 +283,15 @@ const directions = [
   .expertise__heading {
     font-size: 22px;
     line-height: 25px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    padding-inline: var(--spacing-lg);
+    box-sizing: border-box;
+  }
+
+  .expertise__container {
+    min-width: 0;
+    padding-inline: var(--spacing-sm);
   }
 
   .expertise__directions-title {

@@ -262,6 +262,9 @@ color: #000000;
     gap: var(--spacing-xl);
   }
 
+  .cta__container {
+  padding: 0 var(--spacing-md);
+  }
 }
 
 @media (max-width: 375px) {

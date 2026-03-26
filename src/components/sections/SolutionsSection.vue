@@ -435,6 +435,17 @@ gap: var(--spacing-lg);
 
 }
 
+@media (max-width: 580px) {
+  .solutions {
+    background-color: var(--bg-section-alt);
+    background-image: url('/solutions-bg-mobile375.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
 @media (max-width: 375px) {
   .solutions__heading {
   font-size: 12px;

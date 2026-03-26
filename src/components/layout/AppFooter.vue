@@ -586,6 +586,8 @@ const docLinks = [
   .footer__brand-legal .footer__legal {
     flex: 1 1 0;
     min-width: 0;
+    padding-left: var(--spacing-4xl);
+    box-sizing: border-box;
   }
 
   .footer__brand-legal .footer__address-block {

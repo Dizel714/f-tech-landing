@@ -275,6 +275,7 @@
     height: 60px;
     font-size: 14px;
     align-self: center;
+    margin-left: 15px;
   }
 
   .hero__visual {
