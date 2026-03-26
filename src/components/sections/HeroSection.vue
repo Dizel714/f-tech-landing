@@ -274,6 +274,7 @@
     max-width: 100%;
     height: 60px;
     font-size: 14px;
+    align-self: center;
   }
 
   .hero__visual {

@@ -59,7 +59,7 @@ const docLinks = [
 
             <div class="footer__address-block">
               <p class="footer__legal-name">Юр.адрес:</p>
-              <p class="footer__legal-row">107031, г. Москва, <br> вн.тер.г. МО Мещанский, <br> ул. Кузнецкий Мост, 21/5</p>
+              <p class="footer__legal-row">107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5</p>
             </div>
           </div>
         </div>

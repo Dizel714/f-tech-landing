@@ -379,19 +379,30 @@ const solutions = [
 }
 
 @media (max-width: 793px) {
+
+  .solutions {
+    background-color: var(--bg-section-alt);
+    background-image: url('/solutions-bg-mobile793.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding: var(--spacing-2xl) 0;
+  }
+
   .solutions__heading {
   font-size: 22px;
   line-height: 21px;
   }
 
   .solution-card {
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xs);
   }
 
 
   .solution-card__title {
   font-size: 19px;
   line-height: 15px;
+  margin-bottom: var(--spacing-lg);
   }
 
   .solution-card__description {
@@ -406,7 +417,7 @@ const solutions = [
   }
 
     .solution-card__advantages-list {
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xs);
   }
 
   .solution-card__advantages-heading {
@@ -417,6 +428,11 @@ const solutions = [
   width: 16px;
   height: 16px;
 }
+
+.solutions__grid {
+gap: var(--spacing-lg);
+}
+
 }
 
 @media (max-width: 375px) {

@@ -86,6 +86,7 @@ const directions = [
   line-height: 50px;
   text-align: center;
   color: #000000;
+  white-space: nowrap;
 }
 
 /* --- Двухколонный layout: 1/3 + 2/3 --- */
@@ -110,6 +111,7 @@ const directions = [
   font-size: 30px;
   line-height: 38px;
   color: #43359C;
+  white-space: nowrap;
 }
 
 /* --- Список направлений в колонку --- */
@@ -138,6 +140,7 @@ const directions = [
   font-size: 28px;
   line-height: 71px;
   color: #43359C;
+  white-space: nowrap;
 }
 
 /* --- Правая область под картинку --- */
@@ -159,6 +162,34 @@ const directions = [
 }
 
 /* --- Адаптив --- */
+
+@media (max-width: 1600px) {
+  .expertise__heading {
+  font-size: 44px;
+  line-height: 44px;
+  }
+
+  .expertise__directions-title {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .expertise__direction-text {
+    font-size: 24px;
+    line-height: 58px;
+  }
+
+  .expertise__direction-icon img {
+    width: 21px;
+    height: 15px;
+  }
+
+  .expertise__visual-img {
+  width: 500px;
+  height: 585px;
+  }
+}
+
 @media (max-width: 1440px) {
   .expertise__heading {
   font-size: 38px;
@@ -193,6 +224,7 @@ const directions = [
 
   .expertise__body {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
   }
 
   .expertise__directions {
@@ -221,7 +253,7 @@ const directions = [
 
   .expertise__direction-text {
     font-size: 18px;
-    line-height: 44px;
+    line-height: 36px;
   }
 
   .expertise__image-area {
@@ -233,7 +265,8 @@ const directions = [
   .expertise__visual-img {
     width: 100%;
     height: auto;
-    max-width: 600px;
+    max-width: 390px;
+    max-height: 450px;
   }
 
   .expertise__direction-icon img {
@@ -259,7 +292,7 @@ const directions = [
 
   .expertise__direction-text {
     font-size: 14px;
-    line-height: 34px;
+    line-height: 30px;
   }
 
   .expertise__image-area {
@@ -267,7 +300,8 @@ const directions = [
   }
 
   .expertise__visual-img {
-    max-width: 500px;
+    max-width: 304px;
+    max-height: 351px;
   }
 
   .expertise__direction-icon img {
@@ -290,7 +324,7 @@ const directions = [
 
   .expertise__direction-text {
     font-size: 13px;
-    line-height: 33px;
+    line-height: 25px;
   }
 
   .expertise__direction-item {
@@ -298,7 +332,8 @@ const directions = [
   }
 
   .expertise__visual-img {
-    max-width: 320px;
+    max-width: 288px;
+    max-height: 332px;
   }
 
   .expertise__direction-icon img {
