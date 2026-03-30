@@ -1,8 +1,6 @@
 <script setup>
 import TechChip from '../ui/TechChip.vue'
 
-/* Технологический стек по направлениям.
-   iconSrc: замени на пути к реальным иконкам (например /icons/react.svg) */
 const techStack = [
   {
     id: 'backend',
@@ -237,14 +235,20 @@ const techStack = [
 }
 
 @media (max-width: 793px) {
-  .tech-stack__row {
+  /* Удаляем или комментируем блок, который менял flex-direction на column */
+  /* .tech-stack__row {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-sm);
+  } */
+
+  /* Просто уменьшаем отступы и размеры, но сохраняем горизонтальное расположение */
+  .tech-stack__row {
+    gap: var(--spacing-md);
   }
 
   .tech-stack__category {
-    flex: none;
+    flex: 0 0 100px;
     font-size: 14px;
     line-height: 35px;
     line-height: 1.4;
@@ -256,8 +260,20 @@ const techStack = [
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 620px) {
+.tech-stack {
+    padding: var(--spacing-4xl) var(--spacing-3xl) 0;
+}
+}
 
+@media (max-width: 432px) {
+
+  .tech-stack {
+    padding: var(--spacing-xs) var(--spacing-xs) 0;
+}
+}
+
+@media (max-width: 375px) {
   .tech-stack__category {
     font-size: 13px;
   }

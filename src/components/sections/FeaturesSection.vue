@@ -78,6 +78,7 @@ const features = [
   padding: 0 var(--container-padding);
   display: flex;
   justify-content: center;
+  padding-inline: 140px;
 }
 
 /* --- Grid 5 элементов в 2 колонки ---
@@ -152,7 +153,32 @@ const features = [
 }
 
 /* --- Адаптив --- */
+@media (max-width: 1600px) {
+  .features__container {
+  padding-inline: 100px;
+  }
+
+  .features__item-text {
+  font-size: 30px;
+  line-height: 31px;
+  }
+
+  .features__chain-step {
+    font-size: 30px;
+    line-height: 31px;
+  }
+
+  .features__item-icon img {
+    width: 95px;
+    height: 95px;
+  }
+}
+
 @media (max-width: 1440px) {
+  .features__container {
+  padding-inline: 90px;
+  }
+
   .features__item-text {
   font-size: 25px;
   line-height: 26px;

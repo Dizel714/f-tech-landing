@@ -464,6 +464,10 @@ const docLinks = [
     line-height: 20px;
   }
 
+    .footer__links-list {
+    gap: var(--spacing-xl) var(--spacing-xl);
+  }
+
     .footer__logo-img {
     width: 182px;
     height: 39px;
@@ -584,7 +588,7 @@ const docLinks = [
   }
 
   .footer__brand-legal .footer__legal {
-    flex: 1 1 0;
+    flex: none;
     min-width: 0;
     padding-left: var(--spacing-4xl);
     box-sizing: border-box;
@@ -597,10 +601,28 @@ const docLinks = [
     height: auto;
   }
 
+  /* Симметрия для первых двух текстовых блоков */
   .footer__col--info {
     grid-area: info;
     width: 100%;
     gap: var(--spacing-md);
+  }
+
+  /* Делаем первые два блока одинаковой высоты */
+  .footer__info-block:first-child,
+  .footer__info-block:nth-child(2) {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Выравниваем текст в первых двух блоках */
+  .footer__info-block:first-child .footer__info-text,
+  .footer__info-block:nth-child(2) .footer__info-text {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
   }
 
   .footer__col--links {
@@ -619,7 +641,7 @@ const docLinks = [
     gap: var(--spacing-xs);
   }
 
-    .footer__info-block:first-child .footer__info-text {
+  .footer__info-block:first-child .footer__info-text {
     line-height: 16px;
   }
 
@@ -632,7 +654,6 @@ const docLinks = [
     line-height: 20px;
   }
 }
-
 
 @media (max-width: 375px) {
   .footer__grid {
@@ -689,5 +710,6 @@ const docLinks = [
     width: 20px;
     height: 20px;
   }
+  
 }
 </style>
