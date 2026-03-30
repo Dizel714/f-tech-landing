@@ -8,7 +8,7 @@
 
       <div class="hero__content">
         <h1 class="hero__title">
-          Ф Тех — технологический партнёр для банков и финтехов
+          Ф Тех — технологический партнёр для банков и финтеха
         </h1>
         <p class="hero__description">
                    <strong>Создаём автоматизированные системы под задачи клиента:</strong> от аналитики до промышленной эксплуатации
@@ -57,7 +57,7 @@
   max-width: var(--container-max);
   width: 100%;
   margin: 0 auto;
-  padding: var(--spacing-3xl) 0 0 var(--container-padding);
+  padding: var(--spacing-3xl) 0 0 140px;
 }
 
 /* --- Текстовый блок --- */
@@ -70,6 +70,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: var(--spacing-lg);
+  padding: var(--spacing-3xl) 0 38px 0;
 }
 
 .hero__title {
@@ -115,6 +116,7 @@
   padding: 0 10px 0 24px;
   border-radius: 50px;
   border: 3.85px solid #FFFFFF;
+  margin-top: 140px;
 
   /* ↓ Задай цвет фона, цвет текста и hover-эффект по дизайну */
   background-color: #306AF2;
@@ -165,7 +167,36 @@
 }
 
 /* --- Адаптив --- */
+@media (max-width: 1600px) {
+  .hero__container {
+    padding: var(--spacing-3xl) 0 0 100px;
+  }
+
+  .hero__title {
+    font-size: 45px;
+    line-height: 60px;
+  }
+
+  .hero__visual {
+    flex: 0 1 770px;
+    max-width: 770px;
+  }
+
+  .hero__description {
+    font-size: 33px;
+    line-height: 45px;
+  }
+
+  .hero__btn {
+  margin-top: 110px;
+}
+}
+
 @media (max-width: 1440px) {
+  .hero__container {
+    padding: var(--spacing-3xl) 0 0 100px;
+  }
+
   .hero__title {
     width: 100%;
     font-size: 37.5px;
@@ -174,8 +205,8 @@
   }
 
   .hero__visual {
-    flex: 0 1 700px;
-    max-width: 700px;
+    flex: 0 1 676px;
+    max-width: 676px;
   }
 
   .hero__description {
@@ -186,12 +217,13 @@
   .hero__btn {
   font-size: 21px;
   line-height: 44px;
+  margin-top: 100px;
 }
 }
 
 @media (max-width: 1024px) {
   .hero__container {
-    padding: var(--spacing-2xl) 0 0 var(--container-padding);
+    padding: var(--spacing-3xl) 0 0 70px;
   }
 
   .hero__title {
@@ -209,6 +241,7 @@
     width: 360px;
     height: 72px;
     font-size: 16px;
+    margin-top: 55px;
   }
 
   .hero__btn-icon {
@@ -228,7 +261,6 @@
   .hero {
     min-height: auto;
     align-items: flex-start;
-    padding-bottom: var(--spacing-3xl);
   }
 
   .hero__container {

@@ -109,7 +109,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   z-index: 100;
   overflow: hidden;
 
-  height: var(--header-height);
+  height: 150px;
 
   background: linear-gradient(180deg, rgba(154, 194, 255, 0.15) 0%, rgba(255, 255, 255, 0.15) 100%);
   backdrop-filter: blur(8px);
@@ -131,7 +131,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
   max-width: var(--container-max);
   height: 100%;
-  margin: 0 auto;
+  margin: 10px;
   padding: 0 var(--container-padding);
 }
 
@@ -139,6 +139,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 .header__logo {
   display: inline-flex;
   transition: opacity var(--transition-fast);
+  margin-left: 100px;
 }
 
 .header__logo:hover {
@@ -154,7 +155,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 /* --- Навигация десктоп --- */
 .header__nav {
   position: absolute;
-  left: 50%;
+  left: 70%;
   transform: translateX(-50%);
 }
 
@@ -174,10 +175,15 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   color: #000000;
   transition: color var(--transition-fast);
   white-space: nowrap;
+  text-decoration: none;
 }
 
+/* Эффекты при наведении для десктопных ссылок */
 .header__nav-link:hover {
-  color: var(--color-primary);
+  color: #306AF2;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 /* --- Кнопка бургера (скрыта на десктопе) --- */
@@ -260,11 +266,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   color: #000000;
   text-align: center;
   transition: color var(--transition-fast);
+  text-decoration: none;
 }
 
 .menu-card__link:hover {
   color: #306AF2;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 /* --- Анимации --- */
@@ -288,7 +297,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 }
 
 /* --- Адаптив --- */
+@media (max-width: 1600px) {
+.header__logo {
+  margin-left: 80px;
+}
+}
+
 @media (max-width: 1440px) {
+.header {
+  height: 120px;
+}
+
   .header__logo-img {
     width: 251px;
     height: 54px;
@@ -300,11 +319,25 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   }
 }
 
+@media (max-width: 1200px) {
+.header__logo {
+  margin-left: 50px;
+}
+}
+
 @media (max-width: 1024px) {
+.header {
+  height: 100px;
+}
+
   .header__logo-img {
     width: 215px;
     height: 46px;
   }
+
+  .header__logo {
+  margin-left: 40px;
+}
 
   .header__nav {
     display: none;
@@ -316,6 +349,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 }
 
 @media (max-width: 793px) {
+ .header {
+  height: 90px;
+}
+
   .header__logo-img {
     width: 167px;
     height: 36px;
@@ -324,9 +361,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   .menu-card__link {
     font-size: 18px;
   }
+
+    .header__logo {
+  margin-left: 30px;
+}
 }
 
 @media (max-width: 375px) {
+  .header {
+  height: 80px;
+}
+
   .header__logo-img {
     width: 156px;
     height: 34px;
@@ -335,6 +380,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   .menu-card__link {
     font-size: 16px;
   }
+
+  .header__logo {
+  margin-left: 15px;
+}
 }
 </style>
 
