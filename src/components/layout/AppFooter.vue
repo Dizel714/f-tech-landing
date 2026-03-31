@@ -593,8 +593,8 @@ const docLinks = [
   .footer__brand-legal {
     grid-area: legal;
     flex-direction: row;
-    justify-content: space-between;
-    gap: var(--spacing-md);
+    justify-content: space-evenly;
+    gap: var(--spacing-xs);
   }
 
   .footer__brand-legal .footer__legal {
@@ -615,13 +615,12 @@ const docLinks = [
   .footer__col--info {
     grid-area: info;
     width: 100%;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xs);
   }
 
   /* Делаем первые два блока одинаковой высоты */
   .footer__info-block:first-child,
   .footer__info-block:nth-child(2) {
-    min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -632,7 +631,7 @@ const docLinks = [
   .footer__info-block:nth-child(2) .footer__info-text {
     display: flex;
     align-items: center;
-    min-height: 60px;
+    min-height: 10px;
   }
 
   .footer__col--links {
