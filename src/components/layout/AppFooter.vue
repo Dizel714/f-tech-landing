@@ -59,18 +59,16 @@ const docLinks = [
 
             <div class="footer__address-block">
               <p class="footer__legal-name">Юр.адрес:</p>
-              <p class="footer__legal-row">107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5</p>
+              <p class="footer__legal-row">
+                107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Колонка 2: Три текстовых блока -->
         <div class="footer__col footer__col--info">
-          <div
-            v-for="block in infoBlocks"
-            :key="block.id"
-            class="footer__info-block"
-          >
+          <div v-for="block in infoBlocks" :key="block.id" class="footer__info-block">
             <h4 class="footer__info-title">{{ block.title }}</h4>
             <p class="footer__info-text" style="white-space: pre-line;">{{ block.text }}</p>
           </div>
@@ -83,32 +81,15 @@ const docLinks = [
         <div class="footer__col footer__col--links">
           <nav aria-label="Документы">
             <ul class="footer__links-list">
-              <li
-                v-for="link in docLinks"
-                :key="link.id"
-                class="footer__link-item"
-              >
+              <li v-for="link in docLinks" :key="link.id" class="footer__link-item">
                 <!-- Иконка стрелки вправо -->
                 <span class="footer__link-icon" aria-hidden="true">
-                  <img
-                    v-if="link.icon"
-                    :src="link.icon"
-                    alt=""
-                    class="footer__link-icon-img"
-                  />
+                  <img v-if="link.icon" :src="link.icon" alt="" class="footer__link-icon-img" />
                 </span>
-                                <a
-                  v-if="!link.modal"
-                  :href="link.href"
-                  :download="link.download || null"
-                  class="footer__link"
-                >{{ link.label }}</a>
-                <button
-                  v-else
-                  class="footer__link footer__link--btn"
-                  type="button"
-                  @click="emit('open-modal')"
-                >{{ link.label }}</button>
+                <a v-if="!link.modal" :href="link.href" :download="link.download || null" class="footer__link">{{
+                  link.label }}</a>
+                <button v-else class="footer__link footer__link--btn" type="button" @click="emit('open-modal')">{{
+                  link.label }}</button>
               </li>
             </ul>
           </nav>
@@ -249,7 +230,6 @@ const docLinks = [
 }
 
 .footer__info-block:first-child .footer__info-text {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -258,7 +238,6 @@ const docLinks = [
 }
 
 .footer__info-block:nth-child(2) .footer__info-text {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -267,7 +246,6 @@ const docLinks = [
 }
 
 .footer__info-block:nth-child(3) .footer__info-title {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -276,7 +254,6 @@ const docLinks = [
 }
 
 .footer__info-block:nth-child(3) .footer__info-text {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
@@ -306,7 +283,7 @@ const docLinks = [
 }
 
 .footer__link-item {
-  display: flex;             /* флекс: иконка слева, текст справа */
+  display: flex;
   align-items: center;
   gap: var(--spacing-sm);
 }
@@ -327,7 +304,6 @@ const docLinks = [
 }
 
 .footer__link {
-  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -366,7 +342,7 @@ const docLinks = [
 
 /* --- Адаптив --- */
 @media (max-width: 1440px) {
-.footer__info-block:first-child .footer__info-text {
+  .footer__info-block:first-child .footer__info-text {
     font-size: 22px;
     line-height: 30px;
   }
@@ -386,28 +362,28 @@ const docLinks = [
     line-height: 24px;
   }
 
-    .footer__link {
+  .footer__link {
     font-size: 15px;
     line-height: 24px;
   }
 
-    .footer__logo-img {
+  .footer__logo-img {
     width: 213px;
     height: 45px;
   }
 
-  .footer__link-icon-img{
+  .footer__link-icon-img {
     width: 32px;
     height: 32px;
   }
-  
+
 }
 
 @media (max-width: 1439px) {
   .footer__grid {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
-    padding: 0 var(--spacing-2xl);
+    padding: 0 var(--spacing-2xl) 16px;
   }
 
   .footer__col--brand {
@@ -459,16 +435,16 @@ const docLinks = [
     line-height: 20px;
   }
 
-    .footer__link {
+  .footer__link {
     font-size: 13px;
     line-height: 20px;
   }
 
-    .footer__links-list {
+  .footer__links-list {
     gap: var(--spacing-xl) var(--spacing-xl);
   }
 
-    .footer__logo-img {
+  .footer__logo-img {
     width: 182px;
     height: 39px;
   }
@@ -482,7 +458,7 @@ const docLinks = [
     font-size: 17px;
   }
 
-    .footer__link-icon-img{
+  .footer__link-icon-img {
     width: 27px;
     height: 27px;
   }
@@ -493,7 +469,7 @@ const docLinks = [
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
     gap: 0 var(--spacing-md);
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-md) 12px;
   }
 
   .footer__divider {
@@ -545,14 +521,50 @@ const docLinks = [
     height: 30px;
   }
 
-    .footer__link-icon-img{
+  .footer__link-icon-img {
     width: 22px;
     height: 22px;
   }
 }
 
+@media (max-width: 610px) {
+
+  .footer__link-icon,
+  .footer__link-icon-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer__links-list {
+    gap: 16px;
+  }
+
+  .footer__link-item {
+    gap: 8px;
+  }
+
+
+}
+
+@media (max-width: 526px) {
+
+  .footer__link-icon,
+  .footer__link-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer__links-list {
+    gap: 12px;
+  }
+
+  .footer__link-item {
+    gap: 4px;
+  }
+}
+
 /* Узкий экран: логотип → юр. блок → текстовые блоки → ссылки колонкой */
-@media (max-width: 679px) {
+@media (max-width: 494px) {
   .footer__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -564,7 +576,7 @@ const docLinks = [
     grid-template-rows: auto;
     gap: var(--spacing-xl);
     row-gap: var(--spacing-xl);
-    padding: 0 var(--spacing-md);
+    padding: 0 30px 12px;
   }
 
   .footer__col--brand {
@@ -580,10 +592,8 @@ const docLinks = [
 
   .footer__brand-legal {
     grid-area: legal;
-    width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
     gap: var(--spacing-md);
   }
 
@@ -592,10 +602,10 @@ const docLinks = [
     min-width: 0;
     padding-left: var(--spacing-4xl);
     box-sizing: border-box;
+    padding: 0;
   }
 
   .footer__brand-legal .footer__address-block {
-    flex: 1 1 0;
     min-width: 0;
     width: auto;
     height: auto;
@@ -638,7 +648,7 @@ const docLinks = [
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: stretch;
-    gap: var(--spacing-xs);
+    gap: 20px;
   }
 
   .footer__info-block:first-child .footer__info-text {
@@ -706,10 +716,10 @@ const docLinks = [
     font-size: 9px;
   }
 
-    .footer__link-icon-img{
+  .footer__link-icon-img {
     width: 20px;
     height: 20px;
   }
-  
+
 }
 </style>
