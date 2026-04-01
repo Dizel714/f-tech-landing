@@ -364,6 +364,7 @@ function handleBackdropClick(event) {
 }
 
 .modal__send-error {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #e53935;
   text-align: center;
@@ -546,6 +547,10 @@ function handleBackdropClick(event) {
     line-height: 15px;
   }
 
+  .modal__send-error {
+  font-size: 11px;
+  }
+
   /* 793: поля 200×21 */
   .modal__input {
     width: 200px;
@@ -570,6 +575,91 @@ function handleBackdropClick(event) {
   }
 }
 
+@media (max-width: 500px) {
+  .modal {
+    /* 375: 241×326 */
+    width: 340px;
+    height: 385px;
+    max-width: min(340px, calc(100vw - 24px));
+    max-height: min(385px, calc(100vh - 24px));
+    padding: var(--spacing-3xl);
+    border-radius: 10px;
+  }
+
+  .modal__policy {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .modal__body {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .modal__info-title {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .modal__info-text {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .modal__label {
+    font-size: 7px;
+    line-height: 14px;
+  }
+
+  /* кнопка и политика — в потоке под полями, без наложения */
+  .modal__form-footer {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--spacing-sm);
+    gap: var(--spacing-xs);
+  }
+
+  .modal__form {
+    gap: var(--spacing-sm);
+    min-height: 0;
+  }
+
+  .modal__fields {
+    flex: 0 0 auto;
+  }
+
+  /* 375: поля 188×20 */
+  .modal__input {
+    width: 220px;
+    max-width: 100%;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .modal__submit {
+    width: 158px;
+    height: 25px;
+    font-size: 7px;
+    line-height: 17px;
+  }
+
+  .modal__policy-text,
+  .modal__policy-link {
+    font-size: 8px;
+    line-height: 12px;
+  }
+
+  .modal__send-error {
+  font-size: 10px;
+  }
+}
+
 @media (max-width: 375px) {
   .modal {
     /* 375: 241×326 */
@@ -577,8 +667,12 @@ function handleBackdropClick(event) {
     height: 326px;
     max-width: min(241px, calc(100vw - 24px));
     max-height: min(326px, calc(100vh - 24px));
-    padding: var(--spacing-sm);
+    padding: var(--spacing-lg);
     border-radius: 10px;
+  }
+
+  .modal__policy {
+    padding: 0 var(--spacing-xs);
   }
 
   .modal__body {
