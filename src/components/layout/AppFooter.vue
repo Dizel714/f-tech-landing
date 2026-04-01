@@ -58,9 +58,8 @@ const docLinks = [
             </address>
 
             <div class="footer__address-block">
-              <p class="footer__legal-name">Юр.адрес:</p>
               <p class="footer__legal-row">
-                107031, город Москва, <br> ул. Рождественка, д. 5/7, <br> стр. 2, помещ. 4А/5
+                <span class="footer__legal-label">Юр.адрес:</span> 107031, г. Москва, <br> вн.тер.г. МО Мещанский, <br> ул. Кузнецкий Мост, 21/5
               </p>
             </div>
           </div>
@@ -175,7 +174,6 @@ const docLinks = [
   font-style: normal;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
 }
 
 .footer__address-block {
@@ -338,6 +336,10 @@ const docLinks = [
   font-size: var(--font-size-xs);
   color: var(--color-gray-400);
   text-align: center;
+}
+
+.footer__legal-label {
+  font-weight: 700;
 }
 
 /* --- Адаптив --- */
@@ -593,7 +595,7 @@ const docLinks = [
   .footer__brand-legal {
     grid-area: legal;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: var(--spacing-xs);
   }
 
@@ -661,6 +663,16 @@ const docLinks = [
 
   .footer__info-block:nth-child(3) .footer__info-text {
     line-height: 20px;
+  }
+
+  .footer__legal {
+    gap: 0;
+}
+
+  .footer__legal-name,
+  .footer__legal-row {
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 
