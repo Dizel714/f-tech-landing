@@ -67,7 +67,7 @@ const solutions = [
     <div class="solutions__container">
 
       <!-- Заголовок секции по центру -->
-      <h2 class="solutions__heading">Наши решения</h2>
+      <!-- <h2 class="solutions__heading">Наши решения</h2> -->
 
       <!-- Grid 2×2 из карточек -->
       <div class="solutions__grid">
