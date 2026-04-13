@@ -10,7 +10,6 @@ const techStack = [
       { name: '.NET 7-9', iconSrc: null },
       { name: 'Java', sublabel: 'Spring Boot', iconSrc: null },
       { name: 'Python', iconSrc: null },
-      { name: 'Go', iconSrc: null },
     ],
   },
   {
