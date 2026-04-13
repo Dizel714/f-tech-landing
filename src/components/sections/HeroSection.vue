@@ -13,7 +13,7 @@
         <p class="hero__description">
                    <strong>Создаём автоматизированные системы под задачи клиента:</strong> от аналитики до промышленной эксплуатации
         </p>
-        <a href="/presentation.pdf" download class="hero__btn">
+        <a href="/presentation_2026_blue_1.pdf" download class="hero__btn">
           <span class="hero__btn-text">Ознакомиться с проектом</span>
           <img src="/icon-arrow-circle.svg" alt="" class="hero__btn-icon" aria-hidden="true" />
         </a>

@@ -29,9 +29,12 @@ const infoBlocks = [
 
 /* Третья колонка: три ссылки с иконками */
 const docLinks = [
-  { id: 1, label: 'Руководство пользователя', href: '/user-manual.docx', icon: 'link-manual.svg', download: true },
-  { id: 2, label: 'Технологический стек', href: '/tech-stack.docx', icon: 'link-stack.svg', download: true },
-  { id: 3, label: 'Форма обратной связи', href: null, icon: 'link-feedback.svg', modal: true },
+  { id: 1, label: 'Инструкция по эксплуатации', href: '/instrukciya_po_ekspulatacii_po.pdf', icon: 'link-manual.svg', download: 'instrukciya_po_ekspluatacii.pdf', modal: false },
+  { id: 2, label: 'Описание процессов жизненного цикла', href: '/opisanie_processov_obespechivayushchih_podderzhanie_zhiznennogo_cikla.pdf', icon: 'link-stack.svg', download: 'opisanie_processov_obespechivayushchih_podderzhanie_zhiznennogo_cikla.pdf', modal: false },
+  { id: 3, label: 'Описание функциональных характеристик', href: '/opisanie_funkcionalnyh_harakteristik.pdf', icon: 'link-manual.svg', download: 'opisanie_funkcionalnyh_harakteristik.pdf', modal: false },
+  { id: 4, label: 'Уведомление об установке', href: '/uvedomlenie_ob_ustanovke.pdf', icon: 'link-stack.svg', download: 'uvedomlenie_ob_ustanovke.pdf', modal: false },
+  { id: 5, label: 'Форма обратной связи', href: null, icon: 'link-feedback.svg', modal: true },
+  
 ]
 </script>
 
@@ -277,7 +280,7 @@ const docLinks = [
 .footer__links-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3xl);
+  gap: var(--spacing-xl);
 }
 
 .footer__link-item {
