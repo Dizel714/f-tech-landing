@@ -4,7 +4,8 @@
 const solutions = [
   {
     id: 4,
-    title: 'Фабрика платежей',
+    titleLine1: 'Информационная система',
+    titleLine2: ' "ФАБРИКА ПЛАТЕЖЕЙ"',
     description: 'Централизованная маршрутизация и обработка платежей',
     advantages: {
       heading: 'Преимущества:',
@@ -29,7 +30,10 @@ const solutions = [
           :key="solution.id"
           class="solution-card"
         >
-          <h3 class="solution-card__title">{{ solution.title }}</h3>
+          <h3 class="solution-card__title">
+            <span class="solution-card__title-line">{{ solution.titleLine1 }}</span>
+            <span class="solution-card__title-line solution-card__title-line--accent">{{ solution.titleLine2 }}</span>
+          </h3>
           <p class="solution-card__description">{{ solution.description }}</p>
 
           <!-- Секция преимуществ: заголовок + список с галочками -->
@@ -138,6 +142,14 @@ const solutions = [
   letter-spacing: -0.05em;
   color: #000000;
   margin-bottom: var(--spacing-xl);
+}
+
+.solution-card__title-line {
+  display: inline;
+}
+
+.solution-card__title-line--accent {
+  white-space: nowrap;
 }
 
 .solution-card__description {
@@ -327,7 +339,7 @@ const solutions = [
 
   .solution-card__title {
     font-size: 19px;
-    line-height: 15px;
+    line-height: 25px;
     margin-bottom: var(--spacing-lg);
   }
 
@@ -369,6 +381,15 @@ const solutions = [
     background-repeat: no-repeat;
     padding: var(--spacing-2xl) 0;
   }
+
+  /* Логика переноса заголовка на две строки */
+  .solution-card__title-line {
+    display: block;
+  }
+
+  .solution-card__title-line--accent {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 375px) {
@@ -383,7 +404,7 @@ const solutions = [
 
   .solution-card__title {
     font-size: 18px;
-    line-height: 14px;
+    line-height: 24px;
     margin-bottom: var(--spacing-sm);
   }
 
