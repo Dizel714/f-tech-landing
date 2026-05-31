@@ -5,9 +5,12 @@ const emit = defineEmits(['open-modal'])
 
 
 const legalInfo = {
-  name: 'ООО «Ф Тех»',
+  name: 'Общество с ограниченной', 
+  name2: 'ответственностью «Ф Тех»',
   inn: '9710125709',
   kpp: '770201001',
+  ogrn: '1237700857790',
+  mail: 'info@ftech.group',
 }
 
 /* Вторая колонка: три блока текста */
@@ -18,7 +21,7 @@ const infoBlocks = [
   },
   {
     id: 2,
-    text: 'Стоимость ПО рассчитывается индивидуально.',
+    text: 'Стоимость ПО рассчитывается индивидуально. Основной код ОКВЭД: Разработка компьютерного программного обеспечения (62.01). Коды видов деятельности в области информационных технологий, осуществляемых организацией, в соответствии с перечнем видов деятельности в области информационных технологий, утвержденным приказом Министерства цифрового развития, связи и массовых коммуникаций Российской Федерации от 11 мая 2023 г. N 449: 1.01; 2.01.'
   },
   {
     id: 3,
@@ -55,8 +58,11 @@ const docLinks = [
           <div class="footer__brand-legal">
             <address class="footer__legal">
               <p class="footer__legal-name">{{ legalInfo.name }}</p>
+              <p class="footer__legal-name">{{ legalInfo.name2 }}</p>
               <p class="footer__legal-row">ИНН: {{ legalInfo.inn }}</p>
               <p class="footer__legal-row">КПП: {{ legalInfo.kpp }}</p>
+              <p class="footer__legal-row">ОГРН: {{ legalInfo.ogrn }}</p>
+              <p class="footer__legal-row">email: {{ legalInfo.mail }}</p>
               <p class="footer__legal-row">{{ legalInfo.address }}</p>
             </address>
 
@@ -102,7 +108,7 @@ const docLinks = [
       <!-- Нижняя строка: копирайт -->
       <div class="footer__bottom">
         <p class="footer__copyright">
-          © {{ new Date().getFullYear() }} {{ legalInfo.name }}. Все права защищены.
+          © {{ new Date().getFullYear() }} {{ legalInfo.name }} {{ legalInfo.name2 }}. Все права защищены.
         </p>
       </div>
 
@@ -116,7 +122,6 @@ const docLinks = [
    ========================================================================== */
 
 .footer {
-  /* ↓ Задай background-color и padding по дизайну */
   width: 100%;
   background-color: #F5F5F5;
   padding: var(--spacing-3xl) 0 0;
@@ -134,9 +139,7 @@ const docLinks = [
   padding: 0 var(--container-padding);
 }
 
-/* --- Grid: 3 колонки + вертикальный разделитель между 2 и 3 ---
-   Используем 4 колонки: col1 | col2 | divider | col3
-   Ширина разделителя — 1px */
+/* --- Grid: 3 колонки + вертикальный разделитель между 2 и 3 --- */
 .footer__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1px 1fr;
@@ -188,14 +191,12 @@ const docLinks = [
 }
 
 .footer__legal-name {
-  /* ↓ Задай font-weight и color по дизайну */
   font-weight: var(--font-weight-semibold);
   color: #306AF2;
   font-size: 20px;
 }
 
 .footer__legal-row {
-  /* ↓ Задай font-size и color по дизайну */
   font-size: 20px;
   color: #306AF2;
   line-height: var(--line-height-relaxed);
@@ -207,7 +208,7 @@ const docLinks = [
   flex-direction: column;
   gap: var(--spacing-lg);
   width: 560px;
-  max-height: 392px;
+  min-height: 0;
 }
 
 .footer__info-block {
@@ -217,17 +218,16 @@ const docLinks = [
 }
 
 .footer__info-title {
-  /* ↓ Задай font-size и font-weight по дизайну */
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: #306AF2;
 }
 
 .footer__info-text {
-  /* ↓ Задай font-size и color по дизайну */
   font-size: var(--font-size-xs);
   color: #306AF2;
   line-height: var(--line-height-relaxed);
+  word-break: break-word;
 }
 
 .footer__info-block:first-child .footer__info-text {
@@ -267,7 +267,6 @@ const docLinks = [
 .footer__divider {
   width: 1px;
   align-self: stretch;
-  /* ↓ Задай цвет вертикальной черты по дизайну */
   background-color: #C9E1FA;
   margin: 0 var(--spacing-md);
 }
@@ -312,6 +311,7 @@ const docLinks = [
   text-decoration-line: underline;
   color: #000000;
   transition: color var(--transition-fast);
+  word-break: break-word;
 }
 
 .footer__link:hover {
@@ -331,11 +331,10 @@ const docLinks = [
 .footer__bottom {
   border-top: 1px solid #C9E1FA;
   padding: var(--spacing-md) 0;
-  margin-top: 0;
+  margin-top: var(--spacing-lg);
 }
 
 .footer__copyright {
-  /* ↓ Задай font-size и color по дизайну */
   font-size: var(--font-size-xs);
   color: var(--color-gray-400);
   text-align: center;
@@ -381,7 +380,6 @@ const docLinks = [
     width: 32px;
     height: 32px;
   }
-
 }
 
 @media (max-width: 1439px) {
@@ -418,9 +416,7 @@ const docLinks = [
   }
 }
 
-
 @media (max-width: 1024px) {
-
   .footer__col--links {
     padding-left: 0;
   }
@@ -533,7 +529,6 @@ const docLinks = [
 }
 
 @media (max-width: 610px) {
-
   .footer__link-icon,
   .footer__link-icon-img {
     width: 20px;
@@ -547,12 +542,9 @@ const docLinks = [
   .footer__link-item {
     gap: 8px;
   }
-
-
 }
 
 @media (max-width: 526px) {
-
   .footer__link-icon,
   .footer__link-icon-img {
     width: 16px;
@@ -616,14 +608,12 @@ const docLinks = [
     height: auto;
   }
 
-  /* Симметрия для первых двух текстовых блоков */
   .footer__col--info {
     grid-area: info;
     width: 100%;
     gap: var(--spacing-xs);
   }
 
-  /* Делаем первые два блока одинаковой высоты */
   .footer__info-block:first-child,
   .footer__info-block:nth-child(2) {
     display: flex;
@@ -631,7 +621,6 @@ const docLinks = [
     justify-content: center;
   }
 
-  /* Выравниваем текст в первых двух блоках */
   .footer__info-block:first-child .footer__info-text,
   .footer__info-block:nth-child(2) .footer__info-text {
     display: flex;
@@ -670,7 +659,7 @@ const docLinks = [
 
   .footer__legal {
     gap: 0;
-}
+  }
 
   .footer__legal-name,
   .footer__legal-row {
@@ -734,6 +723,5 @@ const docLinks = [
     width: 20px;
     height: 20px;
   }
-
 }
 </style>
